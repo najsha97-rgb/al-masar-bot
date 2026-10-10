@@ -1,0 +1,5 @@
+# Abaikan kunci rahsia dan fail sementara
+config.json
+__pycache__/
+*.pyc
+.env

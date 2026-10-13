@@ -1,6 +1,6 @@
 # Bot Telegram Al-Masar (المسار)
 
-Bot Telegram pintar untuk rujukan kitab agung **Al-Masar (Fiqh Perancangan Harakah Islamiyyah)** karya **As-Syeikh Muhammad Ahmad Ar-Rasyid (رحمه الله)**.
+Bot Telegram pintar untuk rujukan kitab agung **Al-Masar (Fiqh Perancangan Harakah Islamiyah)** karya **As-Syeikh Muhammad Ahmad Ar-Rasyid (رحمه الله)**.
 
 ## 🚀 Ciri-Ciri:
 - 📖 **Navigasi 11 Bab + Mukadimah** merangkumi 116 sub-tajuk lengkap.

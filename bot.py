@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 BOT TELEGRAM AL-MASAR (المسار)
-Fiqh Perancangan & Strategi Harakah Islamiyyah
+Fiqh Perancangan & Strategi Harakah Islamiyah
 Karya: Syeikh Muhammad Ahmad Ar-Rasyid (رحمه الله)
 """
 
@@ -168,6 +168,9 @@ def get_main_menu_keyboard():
                 {"text": "🔄 Pilihan Mod Bacaan", "callback_data": "menu_mode"}
             ],
             [
+                {"text": "🌐 Buka Web PWA Al-Masar", "url": "https://al-masar-dakwah.netlify.app/"}
+            ],
+            [
                 {"text": "ℹ️ Info Kitab & Syeikh", "callback_data": "menu_about"}
             ]
         ]
@@ -314,10 +317,12 @@ def handle_message(msg):
     if text.startswith("/start") or text.startswith("/menu"):
         welcome_txt = (
             "✨ <b>SELAMAT DATANG KE BOT AL-MASAR (المسار)</b> ✨\n\n"
-            "Panduan Strategi, Polisi & Fiqh Perancangan Harakah Islamiyyah karya agung <b>As-Syeikh Muhammad Ahmad Ar-Rasyid (رحمه الله)</b>.\n\n"
+            "<b>Pengarang:</b> As-Syeikh Muhammad Ahmad Ar-Rasyid (رحمه الله)\n\n"
+            "Al-Masar adalah buku siri kelima daripada siri-siri fiqh dakwah dan harakah Islamiyah dimulai dengan <i>al-Muntalaq</i> (untuk mengenali tabiatnya), <i>al-‘Awa’iq</i> (yang dipenuhi dengan segala macam jenis halangan), <i>al-Raqa’iq</i> (yang boleh melembutkan hati anda dengan kelembutan makna-maknanya) dan <i>al-Bawariq</i> (yang mengandungi lintasan-lintasan yang boleh dijadikan panduan).\n\n"
             "Bot ini memuatkan <b>11 Bab Utama + Mukadimah</b> dengan <b>116 Sub-Tajuk Lengkap</b>:\n"
             "• 📖 <b>Layer 1:</b> Versi Penuh Terjemahan Lengkap\n"
             "• ⚡ <b>Layer 2:</b> Ringkasan Eksklusif Berstruktur\n\n"
+            "🌐 Aplikasi Web PWA: https://al-masar-dakwah.netlify.app/\n\n"
             "<i>Sila pilih menu di bawah untuk memulakan bacaan:</i>"
         )
         send_message(chat_id, welcome_txt, get_main_menu_keyboard())
@@ -384,7 +389,9 @@ def handle_callback(cb):
     if data == "menu_main":
         welcome_txt = (
             "✨ <b>MENU UTAMA AL-MASAR (المسار)</b> ✨\n\n"
-            "Siri Menghidupkan Fiqh Dakwah — As-Syeikh Muhammad Ahmad Ar-Rasyid.\n\n"
+            "<b>Pengarang:</b> As-Syeikh Muhammad Ahmad Ar-Rasyid (رحمه الله)\n\n"
+            "Al-Masar adalah buku siri kelima daripada siri-siri fiqh dakwah dan harakah Islamiyah dimulai dengan <i>al-Muntalaq</i> (untuk mengenali tabiatnya), <i>al-‘Awa’iq</i> (yang dipenuhi dengan segala macam jenis halangan), <i>al-Raqa’iq</i> (yang boleh melembutkan hati anda dengan kelembutan makna-maknanya) dan <i>al-Bawariq</i> (yang mengandungi lintasan-lintasan yang boleh dijadikan panduan).\n\n"
+            "🌐 Aplikasi Web PWA: https://al-masar-dakwah.netlify.app/\n\n"
             "Sila pilih seksyen yang anda ingin terokai:"
         )
         edit_message(chat_id, msg_id, welcome_txt, get_main_menu_keyboard())
@@ -492,11 +499,17 @@ def handle_callback(cb):
         txt = (
             "🏛 <b>TENTANG KITAB AL-MASAR (المسار)</b>\n\n"
             "<b>Pengarang:</b> As-Syeikh Muhammad Ahmad Ar-Rasyid (رحمه الله)\n"
-            "<b>Siri:</b> Siri Menghidupkan Fiqh Dakwah (إحياء فقه الدعوة)\n"
-            "<b>Cakupan:</b> Polisi Luaran, Polisi Dalaman & Polisi Tarbawi Harakah Islamiyyah.\n\n"
-            "Kitab ini merupakan peta navigasi strategik bagi membimbing para da'i dan qiadah memahami perancangan dakwah berperingkat (marhaliyyah) secara seimbang antara siasah dan tarbiah."
+            "<b>Genre:</b> Strategi, Polisi & Fiqh Perancangan Harakah Islamiyah\n"
+            "<b>Cakupan:</b> Polisi Luaran, Polisi Dalaman & Polisi Tarbawi Harakah Islamiyah\n\n"
+            "Al-Masar adalah buku siri kelima daripada siri-siri fiqh dakwah dan harakah Islamiyah dimulai dengan <i>al-Muntalaq</i> (untuk mengenali tabiatnya), <i>al-‘Awa’iq</i> (yang dipenuhi dengan segala macam jenis halangan), <i>al-Raqa’iq</i> (yang boleh melembutkan hati anda dengan kelembutan makna-maknanya) dan <i>al-Bawariq</i> (yang mengandungi lintasan-lintasan yang boleh dijadikan panduan).\n\n"
+            "🌐 Aplikasi Web PWA: https://al-masar-dakwah.netlify.app/"
         )
-        kb = {"inline_keyboard": [[{"text": "⬅️ Menu Utama", "callback_data": "menu_main"}]]}
+        kb = {
+            "inline_keyboard": [
+                [{"text": "🌐 Layari Web PWA", "url": "https://al-masar-dakwah.netlify.app/"}],
+                [{"text": "⬅️ Menu Utama", "callback_data": "menu_main"}]
+            ]
+        }
         edit_message(chat_id, msg_id, txt, kb)
         return
 

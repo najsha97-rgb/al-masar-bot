@@ -32,7 +32,7 @@ Bot Telegram ini dibina khas untuk memudahkan capaian kepada seluruh perbincanga
 
 ## ⚙️ Langkah 2: Masukkan Token ke Dalam Sistem
 
-Buka fail [`telegram_bot/config.json`](file:///c:/Users/pc/OneDrive/Documents/Bahan_Ilmiah_Dakwah/telegram_bot/config.json) dan gantikan nilai `"ISI_TOKEN_BOT_ANDA_DI_SINI"` dengan token anda:
+Buka fail [`telegram_bot_al-Masar/config.json`](file:///c:/Users/pc/OneDrive/Documents/Bahan_Ilmiah_Dakwah/telegram_bot_al-Masar/config.json) dan gantikan nilai `"ISI_TOKEN_BOT_ANDA_DI_SINI"` dengan token anda:
 
 ```json
 {
@@ -48,11 +48,11 @@ Buka fail [`telegram_bot/config.json`](file:///c:/Users/pc/OneDrive/Documents/Ba
 Ada 2 cara mudah untuk menjalankan bot:
 
 ### Cara A: Klik Dua Kali Fail Pelancar (Paling Mudah di Windows)
-- Buka folder `telegram_bot` dan klik dua kali fail: **`start_bot.bat`**
+- Buka folder `telegram_bot_al-Masar` dan klik dua kali fail: **`start_bot.bat`**
 
 ### Cara B: Guna Arahan Terminal / PowerShell
 ```bash
-cd c:\Users\pc\OneDrive\Documents\Bahan_Ilmiah_Dakwah\telegram_bot
+cd c:\Users\pc\OneDrive\Documents\Bahan_Ilmiah_Dakwah\telegram_bot_al-Masar
 python bot.py
 ```
 

@@ -168,7 +168,7 @@ def get_main_menu_keyboard():
                 {"text": "🔄 Pilihan Mod Bacaan", "callback_data": "menu_mode"}
             ],
             [
-                {"text": "🔵 Buka Web PWA Al-Masar 🌐", "url": "https://al-masar-dakwah.netlify.app/"}
+                {"text": "🧭 Buka Web PWA Al-Masar 🌐", "url": "https://al-masar-dakwah.netlify.app/"}
             ],
             [
                 {"text": "ℹ️ Info Kitab & Syeikh", "callback_data": "menu_about"}
@@ -186,7 +186,7 @@ def get_chapters_keyboard():
     for idx in range(1, len(CHAPTERS)):
         ch = CHAPTERS[idx]
         title_raw = ch['title'].split(':')[1].strip() if ':' in ch['title'] else ch['title']
-        title_short = f"🔵 Bab {idx}: {title_raw}"
+        title_short = f"💎 Bab {idx}: {title_raw}"
         if len(title_short) > 25:
             title_short = title_short[:23] + "..."
         row.append({"text": title_short, "callback_data": f"ch_{idx}"})

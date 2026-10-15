@@ -576,20 +576,26 @@ def run_bot():
     # Aktifkan server HTTP jika berjalan di Render / cloud (PORT dikesan)
     start_health_server()
     
-    # Uji sambungan ke Telegram
-    me = send_api("getMe", {})
-    if not me or not me.get("ok"):
-        print(f"Ralat menyambung ke Telegram: {me}")
-        return
-        
-    bot_info = me["result"]
-    print(f"Berjaya log masuk sebagai @{bot_info.get('username')} ({bot_info.get('first_name')})")
+    # Uji sambungan ke Telegram dengan cubaan semula automatik (Auto-retry)
+    bot_info = None
+    attempt = 1
+    while not bot_info:
+        print(f"Menyambung ke Telegram (Percubaan #{attempt})...")
+        me = send_api("getMe", {})
+        if me and me.get("ok"):
+            bot_info = me["result"]
+            print(f"Berjaya log masuk sebagai @{bot_info.get('username')} ({bot_info.get('first_name')})")
+            break
+        print("Sambungan ke api.telegram.org mengalami timeout / lengah rangkaian (VPN/ISP).")
+        print("Mencuba semula dalam 5 saat... (Jika menggunakan VPN, sila cuba jeda atau tukar lokasi VPN)")
+        attempt += 1
+        time.sleep(5)
 
     last_update_id = 0
     while True:
         try:
             url = f"{API_BASE}/getUpdates?offset={last_update_id + 1}&timeout=20"
-            resp = session.get(url, timeout=25)
+            resp = session.get(url, timeout=30)
             data = resp.json()
             
             if data.get("ok"):
@@ -603,6 +609,9 @@ def run_bot():
         except KeyboardInterrupt:
             print("\nBot dihentikan oleh pengguna.")
             break
+        except (requests.exceptions.Timeout, requests.exceptions.ConnectionError):
+            # Lengahan rangkaian sementara - tunggu sekejap dan sambung semula
+            time.sleep(3)
         except Exception as e:
             print(f"Ralat polling: {e}")
             time.sleep(3)

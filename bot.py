@@ -295,18 +295,39 @@ def get_subtopic_reading_keyboard(ch_idx, s_idx, layer, page, total_pages):
     return {"inline_keyboard": buttons}
 
 # ================= MUTIARA HIKMAH =================
-HIKMAH_LIST = [
-    "“Manusia akan mempedulikan urusan anda, sekadar mana anda peduli dengan urusan Allah. Sesiapa yang datang kepada Allah dengan hatinya, nescaya Allah akan mendatangkan hati-hati manusia kepadanya.”\n— <b>Yahya bin Mu'az (Kitab Al-Masar, Mukadimah)</b>",
-    "“Tiada seorang pun yang membuat dakwaan, melainkan kerana dia kosong daripada memiliki sebarang hakikat. Jika dia telah memiliki hakikat itu, nescaya hakikat dirinya akan memperkatakan tentangnya tanpa perlu berpropaganda.”\n— <b>Kalam Salafussoleh (Al-Masar, Mukadimah)</b>",
-    "“Wahai manusia! Beramal salihlah sebelum berperang, sesungguhnya kamu sebenarnya berperang berbekalkan amalan-amalan kamu!”\n— <b>Abu ad-Darda' RA (Al-Masar, Mukadimah)</b>",
-    "“Jika anda tidak menambah sesuatu kebaikan atau impak kepada dunia ini, maka anda sebenarnya adalah barang lebihan kepada dunia ini.”\n— <b>Mustafa Sadiq ar-Rafi'ie (Al-Masar, Bab 1)</b>",
-    "“Hanya seseorang yang boleh melakukan pemilihan yang baik untuk dirinya sahaja, yang dapat membuat pilihan yang baik untuk orang lain.”\n— <b>Abdullah bin Wahab (Al-Masar, Mukadimah)</b>",
-    "“Kekuatan dalam segala sesuatu. Kita adalah musuh terhadap setiap pemimpin atau parti yang tidak bekerja untuk membantu Islam dan mengembalikan kemegahan Islam.”\n— <b>Imam Hasan Al-Banna (Al-Masar, Bab 3)</b>",
-    "“Sesiapa yang tidak memuji niat anda yang baik, dia tidak akan mensyukuri perbuatan anda yang terpuji.”\n— <b>Khalifah Al-Ma'mun (Al-Masar, Bab 2)</b>",
-    "“Fahamilah Kitab Allah daripada Al-Razi... tetapi fahamilah pandanganku: Adakah kita boleh hidup dengan hati yang tidak bernyala?”\n— <b>Dr. Muhammad Iqbal (Al-Masar, Bab 3)</b>",
-    "“Himpunkanlah mereka yang jauh kepadamu, kerana sesungguhnya lembah tidak akan melimpah dengan air melainkan dengan aliran anak-anak sungai.”\n— <b>Abu Tammam (Al-Masar, Bab 7)</b>",
-    "“Markas jamaah dan pusat perancangan mestilah berfungsi seperti makmal penyelidikan saintifik yang mengkaji data dan realiti, bukannya seperti istana raja yang dipenuhi protokol feudal.”\n— <b>Syeikh Muhammad Ahmad Ar-Rasyid (Al-Masar, Bab 11)</b>"
-]
+QUOTES_PATH = os.path.join(os.path.dirname(__file__), "almasar_quotes.json")
+HIKMAH_DATA = []
+if os.path.exists(QUOTES_PATH):
+    try:
+        with open(QUOTES_PATH, "r", encoding="utf-8") as f:
+            HIKMAH_DATA = json.load(f)
+        print(f"Berjaya memuatkan {len(HIKMAH_DATA)} mutiara hikmah Al-Masar dari JSON.")
+    except Exception as e:
+        print(f"Ralat memuatkan almasar_quotes.json: {e}")
+
+def format_hikmah_message(item):
+    return (
+        f"💎 <b>MUTIARA HIKMAH DAKWAH AL-MASAR</b> 💎\n"
+        f"━━━━━━━━━━━━━━━━━━━\n\n"
+        f"👤 <b>{item.get('speaker', 'Tokoh Dakwah')}</b>\n\n"
+        f"<i>“{item.get('quote', '')}”</i>\n\n"
+        f"━━━━━━━━━━━━━━━━━━━\n"
+        f"📚 <b>Sumber:</b> {item.get('chapterNumber', '')} - {item.get('chapterTitle', '')}\n"
+        f"📑 <b>Topik:</b> {item.get('subtopicTitle', '')}\n"
+        f"🌟 Kitab Al-Masar — Syeikh Muhammad Ahmad Ar-Rasyid\n"
+        f"🌐 https://al-masar-dakwah.netlify.app/"
+    )
+
+def get_hikmah_keyboard(item):
+    ch_idx = item.get('chapterIndex', 0)
+    s_idx = item.get('subtopicIndex', 0)
+    return {
+        "inline_keyboard": [
+            [{"text": f"📖 Baca: {item.get('subtopicTitle', 'Topik Ini')[:28]}", "callback_data": f"sub_{ch_idx}_{s_idx}_0"}],
+            [{"text": "🎲 Mutiara Lain (Rawak)", "callback_data": "hikmah_random"}],
+            [{"text": "⬅️ Menu Utama", "callback_data": "menu_main"}]
+        ]
+    }
 
 # ================= HANDLERS =================
 
@@ -337,7 +358,11 @@ def handle_message(msg):
         return
 
     if text.startswith("/hikmah"):
-        send_message(chat_id, f"💎 <b>MUTIARA DAKWAH AL-MASAR:</b>\n\n{random.choice(HIKMAH_LIST)}")
+        if HIKMAH_DATA:
+            item = random.choice(HIKMAH_DATA)
+            send_message(chat_id, format_hikmah_message(item), get_hikmah_keyboard(item))
+        else:
+            send_message(chat_id, "💎 <b>MUTIARA HIKMAH DAKWAH</b>\n\nKoleksi mutiara hikmah sedang dikemas kini.")
         return
 
     # Mesej biasa -> Lakukan carian pantas
@@ -439,15 +464,11 @@ def handle_callback(cb):
         return
 
     if data == "hikmah_random":
-        quote = random.choice(HIKMAH_LIST)
-        txt = f"💎 <b>MUTIARA DAKWAH AL-MASAR:</b>\n\n{quote}"
-        kb = {
-            "inline_keyboard": [
-                [{"text": "🎲 Mutiara Lain", "callback_data": "hikmah_random"}],
-                [{"text": "⬅️ Menu Utama", "callback_data": "menu_main"}]
-            ]
-        }
-        edit_message(chat_id, msg_id, txt, kb)
+        if HIKMAH_DATA:
+            item = random.choice(HIKMAH_DATA)
+            edit_message(chat_id, msg_id, format_hikmah_message(item), get_hikmah_keyboard(item))
+        else:
+            edit_message(chat_id, msg_id, "💎 <b>MUTIARA HIKMAH DAKWAH</b>\n\nKoleksi mutiara hikmah sedang dikemas kini.", {"inline_keyboard": [[{"text": "⬅️ Menu Utama", "callback_data": "menu_main"}]]})
         return
 
     if data == "menu_mode":

@@ -204,7 +204,7 @@ def get_subtopics_keyboard(ch_idx):
     buttons = []
     
     for s_idx, sub in enumerate(ch["subtopics"]):
-        title_btn = f"🔷 {s_idx+1}. {sub['title']}"
+        title_btn = f"🧭 {s_idx+1}. {sub['title']}"
         if len(title_btn) > 34:
             title_btn = title_btn[:32] + ".."
         buttons.append([{"text": title_btn, "callback_data": f"sub_{ch_idx}_{s_idx}_0"}])

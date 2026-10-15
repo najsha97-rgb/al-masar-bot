@@ -160,7 +160,7 @@ def get_main_menu_keyboard():
     return {
         "inline_keyboard": [
             [
-                {"text": "📖 Baca Ikut Bab (11 Bab)", "callback_data": "menu_chapters"},
+                {"text": "📘 Baca Ikut Bab (11 Bab)", "callback_data": "menu_chapters"},
                 {"text": "🔍 Carian Topik", "callback_data": "menu_search_info"}
             ],
             [
@@ -168,7 +168,7 @@ def get_main_menu_keyboard():
                 {"text": "🔄 Pilihan Mod Bacaan", "callback_data": "menu_mode"}
             ],
             [
-                {"text": "🌐 Buka Web PWA Al-Masar", "url": "https://al-masar-dakwah.netlify.app/"}
+                {"text": "🔵 Buka Web PWA Al-Masar 🌐", "url": "https://al-masar-dakwah.netlify.app/"}
             ],
             [
                 {"text": "ℹ️ Info Kitab & Syeikh", "callback_data": "menu_about"}
@@ -185,9 +185,10 @@ def get_chapters_keyboard():
     row = []
     for idx in range(1, len(CHAPTERS)):
         ch = CHAPTERS[idx]
-        title_short = f"Bab {idx}: {ch['title'].split(':')[1].strip() if ':' in ch['title'] else ch['title']}"
-        if len(title_short) > 24:
-            title_short = title_short[:22] + "..."
+        title_raw = ch['title'].split(':')[1].strip() if ':' in ch['title'] else ch['title']
+        title_short = f"🔵 Bab {idx}: {title_raw}"
+        if len(title_short) > 25:
+            title_short = title_short[:23] + "..."
         row.append({"text": title_short, "callback_data": f"ch_{idx}"})
         if len(row) == 2:
             buttons.append(row)
@@ -203,7 +204,7 @@ def get_subtopics_keyboard(ch_idx):
     buttons = []
     
     for s_idx, sub in enumerate(ch["subtopics"]):
-        title_btn = f"{s_idx+1}. {sub['title']}"
+        title_btn = f"🔷 {s_idx+1}. {sub['title']}"
         if len(title_btn) > 34:
             title_btn = title_btn[:32] + ".."
         buttons.append([{"text": title_btn, "callback_data": f"sub_{ch_idx}_{s_idx}_0"}])
@@ -218,14 +219,15 @@ def format_subtopic_text(ch_idx, s_idx, layer, page=0):
     ch = CHAPTERS[ch_idx]
     sub = ch["subtopics"][s_idx]
     
-    mode_label = "📖 <b>Versi Lengkap (Terjemahan Penuh)</b>" if layer == "layer1" else "⚡ <b>Ringkasan Eksklusif (Layer 2)</b>"
+    mode_label = "🔵 <b>Versi Lengkap (Terjemahan Penuh)</b>" if layer == "layer1" else "⚡ <b>Ringkasan Eksklusif (Layer 2)</b>"
     
     header = (
-        f"🏛 <b>AL-MASAR (المسار)</b>\n"
+        f"🔵 ━━━━━━━━━━━━━━━━━━━ ⚡\n"
+        f"🧭 <b>AL-MASAR (المَسَار)</b>\n"
         f"📚 <b>{ch['number']}: {ch['title']}</b>\n"
         f"📑 <b>Tajuk: {sub['title']}</b>\n"
         f"🏷 <i>{mode_label}</i>\n"
-        f"━━━━━━━━━━━━━━━━━━━\n\n"
+        f"🔵 ━━━━━━━━━━━━━━━━━━━ ⚡\n\n"
     )
     
     if layer == "layer1":
@@ -252,13 +254,13 @@ def format_subtopic_text(ch_idx, s_idx, layer, page=0):
         page = min(page, total_pages - 1)
         body = pages_content[page] if pages_content else "<i>Tiada kandungan.</i>"
         
-        footer = f"\n\n━━━━━━━━━━━━━━━━━━━\n📄 <i>Halaman {page+1} daripada {total_pages}</i>"
+        footer = f"\n\n🔵 ━━━━━━━━━━━━━━━━━━━ ⚡\n📄 <i>Halaman {page+1} daripada {total_pages}</i>"
         return header + body + footer, total_pages
     else:
         # Layer 2: Ringkasan Eksklusif
         summary_raw = sub.get("summary", "Ringkasan sedang dimantapkan...")
         summary_clean = md_to_telegram_html(summary_raw)
-        return header + summary_clean, 1
+        return header + f"<blockquote>{summary_clean}</blockquote>", 1
 
 def get_subtopic_reading_keyboard(ch_idx, s_idx, layer, page, total_pages):
     ch = CHAPTERS[ch_idx]
@@ -306,15 +308,17 @@ if os.path.exists(QUOTES_PATH):
         print(f"Ralat memuatkan almasar_quotes.json: {e}")
 
 def format_hikmah_message(item):
+    quote_text = md_to_telegram_html(item.get("quote", ""))
     return (
+        f"🔵 ━━━━━━━━━━━━━━━━━━━ ⚡\n"
         f"💎 <b>MUTIARA HIKMAH DAKWAH AL-MASAR</b> 💎\n"
-        f"━━━━━━━━━━━━━━━━━━━\n\n"
+        f"🔵 ━━━━━━━━━━━━━━━━━━━ ⚡\n\n"
         f"👤 <b>{item.get('speaker', 'Tokoh Dakwah')}</b>\n\n"
-        f"<i>“{item.get('quote', '')}”</i>\n\n"
+        f"<blockquote><i>“{quote_text}”</i></blockquote>\n\n"
         f"━━━━━━━━━━━━━━━━━━━\n"
         f"📚 <b>Sumber:</b> {item.get('chapterNumber', '')} - {item.get('chapterTitle', '')}\n"
         f"📑 <b>Topik:</b> {item.get('subtopicTitle', '')}\n"
-        f"🌟 Kitab Al-Masar — Syeikh Muhammad Ahmad Ar-Rasyid\n"
+        f"🧭 <i>Kitab Al-Masar — Syeikh Muhammad Ahmad Ar-Rasyid</i>\n"
         f"🌐 https://al-masar-dakwah.netlify.app/"
     )
 
@@ -337,13 +341,18 @@ def handle_message(msg):
     
     if text.startswith("/start") or text.startswith("/menu"):
         welcome_txt = (
-            "✨ <b>SELAMAT DATANG KE BOT AL-MASAR (المسار)</b> ✨\n\n"
-            "<b>Pengarang:</b> As-Syeikh Muhammad Ahmad Ar-Rasyid (رحمه الله)\n\n"
-            "Al-Masar adalah buku siri kelima daripada siri-siri fiqh dakwah dan harakah Islamiyah dimulai dengan <i>al-Muntalaq</i> (untuk mengenali tabiatnya), <i>al-‘Awa’iq</i> (yang dipenuhi dengan segala macam jenis halangan), <i>al-Raqa’iq</i> (yang boleh melembutkan hati anda dengan kelembutan makna-maknanya) dan <i>al-Bawariq</i> (yang mengandungi lintasan-lintasan yang boleh dijadikan panduan).\n\n"
-            "Bot ini memuatkan <b>11 Bab Utama + Mukadimah</b> dengan <b>116 Sub-Tajuk Lengkap</b>:\n"
-            "• 📖 <b>Layer 1:</b> Versi Penuh Terjemahan Lengkap\n"
-            "• ⚡ <b>Layer 2:</b> Ringkasan Eksklusif Berstruktur\n\n"
-            "🌐 Aplikasi Web PWA: https://al-masar-dakwah.netlify.app/\n\n"
+            "🔵 ━━━━━━━━━━━━━━━━━━━ ⚡\n"
+            "🧭 <b>AL-MASAR (المَسَار)</b> 🧭\n"
+            "<i>Fiqh Perancangan & Strategi Harakah Islamiyah</i>\n"
+            "🔵 ━━━━━━━━━━━━━━━━━━━ ⚡\n\n"
+            "<blockquote>📖 <b>Pengarang:</b> As-Syeikh Muhammad Ahmad Ar-Rasyid (رحمه الله)\n"
+            "🌟 <i>Siri Kelima Siri Fiqh Haraki — Menempa perancangan strategik, disiplin amal, dan hikmah polisi harakah.</i></blockquote>\n\n"
+            "📚 <b>Struktur Dwi-Lapisan (Dual-Layer):</b>\n"
+            "• 🔵 <code>Layer 1</code>: Versi Penuh Terjemahan Lengkap (11 Bab + 116 Sub-Tajuk)\n"
+            "• ⚡ <code>Layer 2</code>: Ringkasan Eksklusif Berstruktur & Analisis Haraki\n"
+            "• 💎 <code>Mutiara Hikmah</code>: Himpunan Nukilan Emas Tokoh & Pemimpin Dakwah\n\n"
+            "🌐 <b>Web PWA (Tema Nilam & Amber):</b>\n"
+            "https://al-masar-dakwah.netlify.app/\n\n"
             "<i>Sila pilih menu di bawah untuk memulakan bacaan:</i>"
         )
         send_message(chat_id, welcome_txt, get_main_menu_keyboard())
@@ -413,17 +422,25 @@ def handle_callback(cb):
     
     if data == "menu_main":
         welcome_txt = (
-            "✨ <b>MENU UTAMA AL-MASAR (المسار)</b> ✨\n\n"
-            "<b>Pengarang:</b> As-Syeikh Muhammad Ahmad Ar-Rasyid (رحمه الله)\n\n"
-            "Al-Masar adalah buku siri kelima daripada siri-siri fiqh dakwah dan harakah Islamiyah dimulai dengan <i>al-Muntalaq</i> (untuk mengenali tabiatnya), <i>al-‘Awa’iq</i> (yang dipenuhi dengan segala macam jenis halangan), <i>al-Raqa’iq</i> (yang boleh melembutkan hati anda dengan kelembutan makna-maknanya) dan <i>al-Bawariq</i> (yang mengandungi lintasan-lintasan yang boleh dijadikan panduan).\n\n"
-            "🌐 Aplikasi Web PWA: https://al-masar-dakwah.netlify.app/\n\n"
-            "Sila pilih seksyen yang anda ingin terokai:"
+            "🔵 ━━━━━━━━━━━━━━━━━━━ ⚡\n"
+            "🧭 <b>AL-MASAR (المَسَار)</b> 🧭\n"
+            "<i>Fiqh Perancangan & Strategi Harakah Islamiyah</i>\n"
+            "🔵 ━━━━━━━━━━━━━━━━━━━ ⚡\n\n"
+            "<blockquote>📖 <b>Pengarang:</b> As-Syeikh Muhammad Ahmad Ar-Rasyid (رحمه الله)\n"
+            "🌟 <i>Siri Kelima Siri Fiqh Haraki — Menempa perancangan strategik, disiplin amal, dan hikmah polisi harakah.</i></blockquote>\n\n"
+            "📚 <b>Struktur Dwi-Lapisan (Dual-Layer):</b>\n"
+            "• 🔵 <code>Layer 1</code>: Versi Penuh Terjemahan Lengkap (11 Bab + 116 Sub-Tajuk)\n"
+            "• ⚡ <code>Layer 2</code>: Ringkasan Eksklusif Berstruktur & Analisis Haraki\n"
+            "• 💎 <code>Mutiara Hikmah</code>: Himpunan Nukilan Emas Tokoh & Pemimpin Dakwah\n\n"
+            "🌐 <b>Web PWA (Tema Nilam & Amber):</b>\n"
+            "https://al-masar-dakwah.netlify.app/\n\n"
+            "<i>Sila pilih seksyen di bawah untuk memulakan bacaan:</i>"
         )
         edit_message(chat_id, msg_id, welcome_txt, get_main_menu_keyboard())
         return
 
     if data == "menu_chapters":
-        txt = "📚 <b>PILIH BAB KANDUNGAN AL-MASAR:</b>\n\nKitab ini mengandungi Mukadimah dan 11 Bab utama. Pilih bab untuk melihat sub-tajuk:"
+        txt = "📘 <b>PILIH BAB KANDUNGAN AL-MASAR:</b>\n\nKitab ini mengandungi Mukadimah dan 11 Bab utama. Pilih bab untuk melihat sub-tajuk:"
         edit_message(chat_id, msg_id, txt, get_chapters_keyboard())
         return
 
@@ -475,14 +492,16 @@ def handle_callback(cb):
         cur = get_user_layer(chat_id)
         cur_name = "Versi Penuh (Terjemahan Lengkap)" if cur == "layer1" else "Ringkasan Eksklusif"
         txt = (
-            f"🔄 <b>TETAPAN MOD BACAAN</b>\n\n"
+            f"🔄 ━━━━━━━━━━━━━━━━━━━ ⚡\n"
+            f"⚙️ <b>TETAPAN MOD BACAAN AL-MASAR</b>\n"
+            f"🔄 ━━━━━━━━━━━━━━━━━━━ ⚡\n\n"
             f"Mod semasa anda: <b>{cur_name}</b>\n\n"
-            f"• <b>Versi Penuh (Layer 1):</b> Memaparkan teks terjemahan penuh kitab tanpa tapisan.\n"
-            f"• <b>Ringkasan Eksklusif (Layer 2):</b> Memaparkan intisari padat, poin-poin utama, serta nukilan tokoh penting bagi semakan pantas."
+            f"• 🔵 <b>Versi Penuh (Layer 1):</b> Memaparkan teks terjemahan penuh kitab tanpa tapisan.\n"
+            f"• ⚡ <b>Ringkasan Eksklusif (Layer 2):</b> Memaparkan intisari padat, poin-poin utama, serta nukilan tokoh penting bagi semakan pantas."
         )
         kb = {
             "inline_keyboard": [
-                [{"text": "📖 Tetapkan: Versi Penuh", "callback_data": "setmode_layer1"}],
+                [{"text": "🔵 Tetapkan: Versi Penuh", "callback_data": "setmode_layer1"}],
                 [{"text": "⚡ Tetapkan: Ringkasan Eksklusif", "callback_data": "setmode_layer2"}],
                 [{"text": "⬅️ Menu Utama", "callback_data": "menu_main"}]
             ]
@@ -501,7 +520,9 @@ def handle_callback(cb):
 
     if data == "menu_search_info":
         txt = (
-            "🔍 <b>PANDUAN CARIAN PANTAS</b>\n\n"
+            "🔍 ━━━━━━━━━━━━━━━━━━━ ⚡\n"
+            "🧭 <b>PANDUAN CARIAN PANTAS AL-MASAR</b>\n"
+            "🔍 ━━━━━━━━━━━━━━━━━━━ ⚡\n\n"
             "Anda boleh mencari sebarang topik, nama tokoh, atau istilah fiqh dakwah dengan menaip terus:\n\n"
             "👉 <code>/cari [kata kunci]</code>\n\n"
             "<b>Contoh:</b>\n"
@@ -518,16 +539,19 @@ def handle_callback(cb):
 
     if data == "menu_about":
         txt = (
-            "🏛 <b>TENTANG KITAB AL-MASAR (المسار)</b>\n\n"
-            "<b>Pengarang:</b> As-Syeikh Muhammad Ahmad Ar-Rasyid (رحمه الله)\n"
+            "ℹ️ ━━━━━━━━━━━━━━━━━━━ ⚡\n"
+            "🧭 <b>TENTANG KITAB AL-MASAR (المسار)</b> 🧭\n"
+            "ℹ️ ━━━━━━━━━━━━━━━━━━━ ⚡\n\n"
+            "<blockquote><b>Pengarang:</b> As-Syeikh Muhammad Ahmad Ar-Rasyid (رحمه الله)\n"
             "<b>Genre:</b> Strategi, Polisi & Fiqh Perancangan Harakah Islamiyah\n"
-            "<b>Cakupan:</b> Polisi Luaran, Polisi Dalaman & Polisi Tarbawi Harakah Islamiyah\n\n"
-            "Al-Masar adalah buku siri kelima daripada siri-siri fiqh dakwah dan harakah Islamiyah dimulai dengan <i>al-Muntalaq</i> (untuk mengenali tabiatnya), <i>al-‘Awa’iq</i> (yang dipenuhi dengan segala macam jenis halangan), <i>al-Raqa’iq</i> (yang boleh melembutkan hati anda dengan kelembutan makna-maknanya) dan <i>al-Bawariq</i> (yang mengandungi lintasan-lintasan yang boleh dijadikan panduan).\n\n"
-            "🌐 Aplikasi Web PWA: https://al-masar-dakwah.netlify.app/"
+            "<b>Cakupan:</b> Polisi Luaran, Polisi Dalaman & Polisi Tarbawi Harakah Islamiyah</blockquote>\n\n"
+            "Al-Masar adalah buku siri kelima daripada siri-siri fiqh dakwah dan harakah Islamiyah dimulai dengan <i>al-Muntalaq</i> (mengenali tabiatnya), <i>al-‘Awa’iq</i> (halangan dakwah), <i>al-Raqa’iq</i> (kelembutan jiwa), dan <i>al-Bawariq</i> (lintasan panduan).\n\n"
+            "🌐 <b>Aplikasi Web PWA (Tema Nilam & Amber):</b>\n"
+            "https://al-masar-dakwah.netlify.app/"
         )
         kb = {
             "inline_keyboard": [
-                [{"text": "🌐 Layari Web PWA", "url": "https://al-masar-dakwah.netlify.app/"}],
+                [{"text": "🔵 Layari Web PWA Al-Masar 🌐", "url": "https://al-masar-dakwah.netlify.app/"}],
                 [{"text": "⬅️ Menu Utama", "callback_data": "menu_main"}]
             ]
         }

@@ -174,7 +174,7 @@ Bagi setiap cadangan jawapan, disediakan rujukan bab dan subtajuk dalam **Bahasa
 [Peringkat 3: Kesungguhan Maidaniyyah (Medan Terbuka) / الجدية الميدانية]
   ├── Faktor 4: Menghalang penghijrahan dan melengkapkan kitaran generasi
   ├── Faktor 9: Menyedari bahaya persekitaran luar yang mengepung dakwah
-  └── Faktor 10: Mengobarkan sastera hamasiyyah dalam kempen massa
+  └── Faktor 10: Mengobarkan sastera hamasiyah dalam kempen massa
 ```
 
 ### 2. Pengelasan: Neraca Nisbi Lawan Tarjih Maslahat / خضوع العوامل للميزان النسبي أو ترجيح تعارض المصالح:
@@ -212,7 +212,7 @@ Bagi setiap cadangan jawapan, disediakan rujukan bab dan subtajuk dalam **Bahasa
 #### (d) Persidangan Tarbiah & Pembinaan Belia / *Mu'tamar at-Tarbiyah wa-Bina' al-Ajyal* (مؤتمر التربية وبناء الأجيال):
 - **Rujukan Bab & Subtajuk:**  
   - **Bab 10: Laluan-Laluan Penembusan Masyarakat (*Masalik at-Tawaghghul* / مسالك التوغل)** — Subtajuk: **Kewajipan Keempat: Membina Gerakan Tunas Muda Islam / *Shawlat Abna' al-'Afra'* (صولات أبناء العفراء)**, ms. 209–211 (PDF 211–213).  
-  - **Bab 12: Faktor-Faktor Kesungguhan dalam Jamaah (*Awamil al-Jiddiyyah al-Jama'iyyah* / عوامل الجدية الجماعية)** — Subtajuk: **Faktor Kesepuluh: Meningkatkan Semangat dan Menyebarkan Sastera Hamasiyyah serta Raqa'iq / *Isya'at Adab al-Hamasah war-Raqa'iq* (إشاعة أدب الحماسة والرقائق)**, ms. 275–280 (PDF 277–282).
+  - **Bab 12: Faktor-Faktor Kesungguhan dalam Jamaah (*Awamil al-Jiddiyyah al-Jama'iyyah* / عوامل الجدية الجماعية)** — Subtajuk: **Faktor Kesepuluh: Meningkatkan Semangat dan Menyebarkan Sastera Hamasiyah serta Raqa'iq / *Isya'at Adab al-Hamasah war-Raqa'iq* (إشاعة أدب الحماسة والرقائق)**, ms. 275–280 (PDF 277–282).
 - **Ringkasan Intipati Perbahasan:**  
   Membahaskan pembinaan modul tarbiah generasi muda yang menyatukan kelaziman ibadah dengan semangat kepahlawanan (*hamasah*), serta merawat kelesuan jiwa (*futur*).
 

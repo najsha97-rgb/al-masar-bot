@@ -222,11 +222,13 @@ def get_subtopics_keyboard(ch_idx):
     ])
     return {"inline_keyboard": buttons}
 
-def format_subtopic_text(ch_idx, s_idx, layer, page=0):
+def format_subtopic_text(ch_idx, s_idx, layer, page=0, search_q=None):
     ch = CHAPTERS[ch_idx]
     sub = ch["subtopics"][s_idx]
     
     mode_label = "🔵 <b>Versi Lengkap (Terjemahan Penuh)</b>" if layer == "layer1" else "⚡ <b>Ringkasan Eksklusif (Layer 2)</b>"
+    
+    highlight_note = (f'🔍 <i>Kata Kunci: "<b>{search_q}</b>" (diserlahkan dengan garis tebal)</i>\n') if search_q else ""
     
     header = (
         f"🔵 ━━━━━━━━━━━━━━━━━━━ ⚡\n"
@@ -234,6 +236,7 @@ def format_subtopic_text(ch_idx, s_idx, layer, page=0):
         f"📚 <b>{ch['number']}: {ch['title']}</b>\n"
         f"📑 <b>Tajuk: {sub['title']}</b>\n"
         f"🏷 <i>{mode_label}</i>\n"
+        f"{highlight_note}"
         f"🔵 ━━━━━━━━━━━━━━━━━━━ ⚡\n\n"
     )
     
@@ -260,6 +263,9 @@ def format_subtopic_text(ch_idx, s_idx, layer, page=0):
         total_pages = len(pages_content)
         page = min(page, total_pages - 1)
         body = pages_content[page] if pages_content else "<i>Tiada kandungan.</i>"
+        if search_q and search_q.lower() in body.lower():
+            pattern = re.compile(re.escape(search_q), re.IGNORECASE)
+            body = pattern.sub(lambda m: f"<b><u>{m.group(0)}</u></b>", body)
         
         footer = f"\n\n🔵 ━━━━━━━━━━━━━━━━━━━ ⚡\n📄 <i>Halaman {page+1} daripada {total_pages}</i>"
         return header + body + footer, total_pages
@@ -267,6 +273,9 @@ def format_subtopic_text(ch_idx, s_idx, layer, page=0):
         # Layer 2: Ringkasan Eksklusif
         summary_raw = sub.get("summary", "Ringkasan sedang dimantapkan...")
         summary_clean = md_to_telegram_html(summary_raw)
+        if search_q and search_q.lower() in summary_clean.lower():
+            pattern = re.compile(re.escape(search_q), re.IGNORECASE)
+            summary_clean = pattern.sub(lambda m: f"<b><u>{m.group(0)}</u></b>", summary_clean)
         return header + f"<blockquote>{summary_clean}</blockquote>", 1
 
 def get_subtopic_reading_keyboard(ch_idx, s_idx, layer, page, total_pages):
@@ -400,6 +409,7 @@ def handle_message(msg):
     handle_search(chat_id, text)
 
 def handle_search(chat_id, query):
+    USER_SEARCH[chat_id] = query
     query_lower = query.lower()
     matches = []
     
@@ -483,8 +493,9 @@ def handle_callback(cb):
         s_idx = int(parts[2])
         page = int(parts[3]) if len(parts) > 3 else 0
         layer = get_user_layer(chat_id)
+        search_q = USER_SEARCH.get(chat_id)
         
-        content_txt, total_pages = format_subtopic_text(ch_idx, s_idx, layer, page)
+        content_txt, total_pages = format_subtopic_text(ch_idx, s_idx, layer, page, search_q)
         kb = get_subtopic_reading_keyboard(ch_idx, s_idx, layer, page, total_pages)
         edit_message(chat_id, msg_id, content_txt, kb)
         return

@@ -65,7 +65,7 @@ Bagi setiap cadangan jawapan, disediakan rujukan bab dan subtajuk dalam **Bahasa
 
 #### (a) Kadar Kerahsiaan Lawan Keterbukaan / ميزان السرية والعلانية:
 - **Rujukan Bab & Subtajuk:**  
-  - **Bab 13: Penyesuaian Fleksibel (*At-Takyif al-Murin* / التكيف المرن)** — Subtajuk: **Menyembunyikan Sebahagian Fakta Gerakan dan Mengelakkan Menunjuk-nunjukkan Semua Kekuatan Jamaah / *Ikhfa' al-Harakah li-Ba'dhi Haqa'iqiha* (إخفاء الحركة لبعض حقائقها ، وعدم استعراضها لكل عضلاتها)**, ms. 301–306 (PDF 303–308).  
+  - **Bab 13: Penyesuaian Fleksibel (*At-Takyif al-Murin* / التكيف المرن)** — Subtajuk: **Menyembunyikan Sebahagian Fakta Gerakan dan Mengelakkan Menunjuk-nunjukkan Semua Kekuatan Jemaah / *Ikhfa' al-Harakah li-Ba'dhi Haqa'iqiha* (إخفاء الحركة لبعض حقائقها ، وعدم استعراضها لكل عضلاتها)**, ms. 301–306 (PDF 303–308).  
   - **Bab 15: Nada Gemaan Azan (*Nabarat al-Azan* / نبرات الأذان)** — Subtajuk: **Ruang Kerahsiaan dan Perlindungan Operasi / *Rihab al-Ikhtifa'* (رحاب الاختفاء)**, ms. 383–384 (PDF 385–386).
 - **Ringkasan Intipati Perbahasan:**  
   Kerahsiaan dan keterbukaan bukanlah hukum aqidah yang mutlak, tetapi instrumen nisbi yang dikawal oleh realiti persekitaran. Di bawah tekanan kuku besi rejim musuh, kerahsiaan struktur dan aktiviti dinaikkan ke tahap maksimum *(Bab 15 ms. 383–384)*. Namun tatkala wujud ruang demokrasi dan perundangan, dakwah wajib keluar memanfaatkan medan terbuka *(Bab 13 ms. 301–306)* tanpa mempamerkan seluruh kekuatan aset tanzim yang boleh mencetuskan kewaspadaan musuh.
@@ -154,7 +154,7 @@ Bagi setiap cadangan jawapan, disediakan rujukan bab dan subtajuk dalam **Bahasa
 
 ### 1. Cadangan Pelan Bertahap 3 Peringkat Beserta Rujukan Dwibahasa & Ringkasan Perbahasan / التدرج المقترح لعوامل الجدية الجماعية في ثلاث مراحل ومراجعها وخلاصة مباحثها:
 - **Rujukan Bab Utama:**  
-  - **Bab 12: Faktor-Faktor Kesungguhan dalam Jamaah (*Awamil al-Jiddiyyah al-Jama'iyyah* / عوامل الجدية الجماعية)**, ms. 235–282 (PDF 237–284).  
+  - **Bab 12: Faktor-Faktor Kesungguhan dalam Jemaah (*Awamil al-Jiddiyyah al-Jama'iyyah* / عوامل الجدية الجماعية)**, ms. 235–282 (PDF 237–284).  
   - **Bab 13: Penyesuaian Fleksibel (*At-Takyif al-Murin* / التكيف المرن)** — Subtajuk: **Sentiasa Berwaspada dan Mengelakkan Ketergesaan / *Al-Hadzar, wal-Hadzar min at-Tahawwur* (الحذر ، والحذر من التهور)**, ms. 329–335 (PDF 331–337).
 - **Ringkasan Intipati Perbahasan:**  
   - *Bab 12 (ms. 235–282):* Syeikh memperincikan 10 faktor kesungguhan jama'i, membicarakan program fardi dan jama'i, pembahagian kerja, disiplin perlembagaan tanzim, dan perancangan kewangan mantap.
@@ -212,13 +212,13 @@ Bagi setiap cadangan jawapan, disediakan rujukan bab dan subtajuk dalam **Bahasa
 #### (d) Persidangan Tarbiah & Pembinaan Belia / *Mu'tamar at-Tarbiyah wa-Bina' al-Ajyal* (مؤتمر التربية وبناء الأجيال):
 - **Rujukan Bab & Subtajuk:**  
   - **Bab 10: Laluan-Laluan Penembusan Masyarakat (*Masalik at-Tawaghghul* / مسالك التوغل)** — Subtajuk: **Kewajipan Keempat: Membina Gerakan Tunas Muda Islam / *Shawlat Abna' al-'Afra'* (صولات أبناء العفراء)**, ms. 209–211 (PDF 211–213).  
-  - **Bab 12: Faktor-Faktor Kesungguhan dalam Jamaah (*Awamil al-Jiddiyyah al-Jama'iyyah* / عوامل الجدية الجماعية)** — Subtajuk: **Faktor Kesepuluh: Meningkatkan Semangat dan Menyebarkan Sastera Hamasiyah serta Raqa'iq / *Isya'at Adab al-Hamasah war-Raqa'iq* (إشاعة أدب الحماسة والرقائق)**, ms. 275–280 (PDF 277–282).
+  - **Bab 12: Faktor-Faktor Kesungguhan dalam Jemaah (*Awamil al-Jiddiyyah al-Jama'iyyah* / عوامل الجدية الجماعية)** — Subtajuk: **Faktor Kesepuluh: Meningkatkan Semangat dan Menyebarkan Sastera Hamasiyah serta Raqa'iq / *Isya'at Adab al-Hamasah war-Raqa'iq* (إشاعة أدب الحماسة والرقائق)**, ms. 275–280 (PDF 277–282).
 - **Ringkasan Intipati Perbahasan:**  
   Membahaskan pembinaan modul tarbiah generasi muda yang menyatukan kelaziman ibadah dengan semangat kepahlawanan (*hamasah*), serta merawat kelesuan jiwa (*futur*).
 
 #### (e) Persidangan Pembangunan Kewangan Tanzim / *Mu'tamar at-Tanmiyah al-Maliyyah* (مؤتمر التنمية المالية):
 - **Rujukan Bab & Subtajuk:**  
-  - **Bab 12: Faktor-Faktor Kesungguhan dalam Jamaah (*Awamil al-Jiddiyyah al-Jama'iyyah* / عوامل الجدية الجماعية)** — Subtajuk: **Faktor Kelapan: Kewujudan Sumber Kewangan yang Kukuh untuk Melaksanakan Segala Perancangan / *Al-Mal al-Wafir li-Tanfiz al-Khithath* (المال الوافر لتنفيذ الخطط)**, ms. 265–270 (PDF 267–272).  
+  - **Bab 12: Faktor-Faktor Kesungguhan dalam Jemaah (*Awamil al-Jiddiyyah al-Jama'iyyah* / عوامل الجدية الجماعية)** — Subtajuk: **Faktor Kelapan: Kewujudan Sumber Kewangan yang Kukuh untuk Melaksanakan Segala Perancangan / *Al-Mal al-Wafir li-Tanfiz al-Khithath* (المال الوافر لتنفيذ الخطط)**, ms. 265–270 (PDF 267–272).  
   - **Bab 15: Nada Gemaan Azan (*Nabarat al-Azan* / نبرات الأذان)** — Subtajuk: **Harta Sebagai Urat Nadi Gerakan Dakwah / *Al-Mal 'Ashab ad-Da'awat* (المال عصب الدعوات)**, ms. 386–387 (PDF 388–389).
 - **Ringkasan Intipati Perbahasan:**  
   Membahaskan kemandirian ekonomi dakwah: pengurusan caruman anggota, pelaburan wakaf produktif, dan audit ketat bagi mengelakkan fitnah kewangan.
@@ -257,7 +257,7 @@ Bagi setiap cadangan jawapan, disediakan rujukan bab dan subtajuk dalam **Bahasa
 2. **Persidangan Pembangunan Kewangan Tanzim / مؤتمر التنمية المالية:**
    - *Topik 1:* Penubuhan Konsortium Perniagaan Harakah yang Patuh Syariah dan Berdaya Saing.
    - *Topik 2:* Pengurusan Zakat, Saham Wakaf Produktif, dan Tabung Solidariti Mihnah.
-   - *Topik 3:* Protokol Ketelusan Audit Dalaman bagi Mengelakkan Keraguan Dana Jamaah.
+   - *Topik 3:* Protokol Ketelusan Audit Dalaman bagi Mengelakkan Keraguan Dana Jemaah.
 3. **Persidangan Khidmat Masyarakat & Kebajikan Awam / مؤتمر الخدمات الاجتماعية:**
    - *Topik 1:* Transformasi Khidmat Bencana Menjadi Pintu Pengenalan Fikrah Islamiah.
    - *Topik 2:* Penubuhan Pusat Khidmat Guaman Awam, Klinik Komuniti, dan Pusat Bimbingan Remaja.

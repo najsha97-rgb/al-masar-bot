@@ -157,7 +157,7 @@ Bagi setiap cadangan jawapan, disediakan rujukan bab dan subtajuk dalam **Bahasa
   - **Bab 12: Faktor-Faktor Kesungguhan dalam Jamaah (*Awamil al-Jiddiyyah al-Jama'iyyah* / عوامل الجدية الجماعية)**, ms. 235–282 (PDF 237–284).  
   - **Bab 13: Penyesuaian Fleksibel (*At-Takyif al-Murin* / التكيف المرن)** — Subtajuk: **Sentiasa Berwaspada dan Mengelakkan Ketergesaan / *Al-Hadzar, wal-Hadzar min at-Tahawwur* (الحذر ، والحذر من التهور)**, ms. 329–335 (PDF 331–337).
 - **Ringkasan Intipati Perbahasan:**  
-  - *Bab 12 (ms. 235–282):* Syeikh memperincikan 10 faktor kesungguhan jama'i, membicarakan program fardi dan jamaie, pembahagian kerja, disiplin perlembagaan tanzim, dan perancangan kewangan mantap.
+  - *Bab 12 (ms. 235–282):* Syeikh memperincikan 10 faktor kesungguhan jama'i, membicarakan program fardi dan jama'i, pembahagian kerja, disiplin perlembagaan tanzim, dan perancangan kewangan mantap.
   - *Bab 13 (ms. 329–335):* Menggariskan batas kawalan kesungguhan agar tidak bertukar menjadi kegopohan melulu yang merugikan jemaah.
 
 ```text

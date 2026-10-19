@@ -160,7 +160,7 @@ def get_main_menu_keyboard():
     return {
         "inline_keyboard": [
             [
-                {"text": "📘 Baca Ikut Bab (11 Bab)", "callback_data": "menu_chapters"},
+                {"text": "📘 Baca Ikut Bab (20 Bab)", "callback_data": "menu_chapters"},
                 {"text": "🔍 Carian Topik", "callback_data": "menu_search_info"}
             ],
             [
@@ -179,22 +179,29 @@ def get_main_menu_keyboard():
 def get_chapters_keyboard():
     buttons = []
     # Mukadimah
-    buttons.append([{"text": "📌 Mukadimah: Fiqh Perancangan", "callback_data": "ch_0"}])
+    buttons.append([{"text": "📌 Mukadimah: Dasar Perancangan", "callback_data": "ch_0"}])
     
-    # Bab 1 hingga 11 (2 butang per baris)
+    # Bab 1 hingga 20 (2 butang per baris)
     row = []
     for idx in range(1, len(CHAPTERS)):
         ch = CHAPTERS[idx]
+        if ch.get("number") == "Penutup" or "Khatimah" in ch.get("title", ""):
+            continue
         title_raw = ch['title'].split(':')[1].strip() if ':' in ch['title'] else ch['title']
         title_short = f"💎 Bab {idx}: {title_raw}"
         if len(title_short) > 25:
-            title_short = title_short[:23] + "..."
+            title_short = title_short[:23] + ".."
         row.append({"text": title_short, "callback_data": f"ch_{idx}"})
         if len(row) == 2:
             buttons.append(row)
             row = []
     if row:
         buttons.append(row)
+        
+    # Penutup / Khatimah
+    penutup_idx = len(CHAPTERS) - 1
+    if penutup_idx > 0 and (CHAPTERS[penutup_idx].get("number") == "Penutup" or "Khatimah" in CHAPTERS[penutup_idx].get("title", "")):
+        buttons.append([{"text": "🌟 Penutup: Khatimah (Kewaspadaan & Optimisme)", "callback_data": f"ch_{penutup_idx}"}])
         
     buttons.append([{"text": "⬅️ Kembali ke Menu Utama", "callback_data": "menu_main"}])
     return {"inline_keyboard": buttons}
@@ -309,9 +316,13 @@ if os.path.exists(QUOTES_PATH):
 
 def format_hikmah_message(item):
     quote_text = md_to_telegram_html(item.get("quote", ""))
+    total_q = len(HIKMAH_DATA) if HIKMAH_DATA else 156
+    q_id = item.get("id", "")
+    badge = f" #{q_id}" if q_id else ""
     return (
         f"🔵 ━━━━━━━━━━━━━━━━━━━ ⚡\n"
         f"💎 <b>MUTIARA HIKMAH DAKWAH AL-MASAR</b> 💎\n"
+        f"✨ <i>Koleksi Mutiara Emas ({badge} / {total_q})</i>\n"
         f"🔵 ━━━━━━━━━━━━━━━━━━━ ⚡\n\n"
         f"👤 <b>{item.get('speaker', 'Tokoh Dakwah')}</b>\n\n"
         f"<blockquote><i>“{quote_text}”</i></blockquote>\n\n"
@@ -323,8 +334,19 @@ def format_hikmah_message(item):
     )
 
 def get_hikmah_keyboard(item):
-    ch_idx = item.get('chapterIndex', 0)
-    s_idx = item.get('subtopicIndex', 0)
+    ch_idx = item.get('chapterIndex')
+    s_idx = item.get('subtopicIndex')
+    if ch_idx is None or s_idx is None:
+        sub_id = item.get('subtopicId')
+        for c_i, ch in enumerate(CHAPTERS):
+            for s_i, sub in enumerate(ch.get('subtopics', [])):
+                if sub.get('id') == sub_id:
+                    ch_idx, s_idx = c_i, s_i
+                    break
+            if ch_idx is not None and s_idx is not None:
+                break
+    ch_idx = ch_idx if ch_idx is not None else 0
+    s_idx = s_idx if s_idx is not None else 0
     return {
         "inline_keyboard": [
             [{"text": f"📖 Baca: {item.get('subtopicTitle', 'Topik Ini')[:28]}", "callback_data": f"sub_{ch_idx}_{s_idx}_0"}],
@@ -348,9 +370,9 @@ def handle_message(msg):
             "<blockquote>📖 <b>Pengarang:</b> As-Syeikh Muhammad Ahmad Ar-Rasyid (رحمه الله)\n"
             "🌟 <i>Siri Kelima Siri Fiqh Haraki — Menempa perancangan strategik, disiplin amal, dan hikmah polisi harakah.</i></blockquote>\n\n"
             "📚 <b>Struktur Dwi-Lapisan (Dual-Layer):</b>\n"
-            "• 🔵 <code>Layer 1</code>: Versi Penuh Terjemahan Lengkap (11 Bab + 116 Sub-Tajuk)\n"
+            "• 🔵 <code>Layer 1</code>: Versi Penuh Terjemahan Lengkap (20 Bab + 210 Topik Lengkap)\n"
             "• ⚡ <code>Layer 2</code>: Ringkasan Eksklusif Berstruktur & Analisis Haraki\n"
-            "• 💎 <code>Mutiara Hikmah</code>: Himpunan Nukilan Emas Tokoh & Pemimpin Dakwah\n\n"
+            "• 💎 <code>Mutiara Hikmah</code>: Himpunan 156 Nukilan Emas Tokoh & Pemimpin Dakwah\n\n"
             "🌐 <b>Web PWA (Tema Nilam & Amber):</b>\n"
             "https://al-masar-dakwah.netlify.app/\n\n"
             "<i>Sila pilih menu di bawah untuk memulakan bacaan:</i>"
@@ -429,9 +451,9 @@ def handle_callback(cb):
             "<blockquote>📖 <b>Pengarang:</b> As-Syeikh Muhammad Ahmad Ar-Rasyid (رحمه الله)\n"
             "🌟 <i>Siri Kelima Siri Fiqh Haraki — Menempa perancangan strategik, disiplin amal, dan hikmah polisi harakah.</i></blockquote>\n\n"
             "📚 <b>Struktur Dwi-Lapisan (Dual-Layer):</b>\n"
-            "• 🔵 <code>Layer 1</code>: Versi Penuh Terjemahan Lengkap (11 Bab + 116 Sub-Tajuk)\n"
+            "• 🔵 <code>Layer 1</code>: Versi Penuh Terjemahan Lengkap (20 Bab + 210 Topik Lengkap)\n"
             "• ⚡ <code>Layer 2</code>: Ringkasan Eksklusif Berstruktur & Analisis Haraki\n"
-            "• 💎 <code>Mutiara Hikmah</code>: Himpunan Nukilan Emas Tokoh & Pemimpin Dakwah\n\n"
+            "• 💎 <code>Mutiara Hikmah</code>: Himpunan 156 Nukilan Emas Tokoh & Pemimpin Dakwah\n\n"
             "🌐 <b>Web PWA (Tema Nilam & Amber):</b>\n"
             "https://al-masar-dakwah.netlify.app/\n\n"
             "<i>Sila pilih seksyen di bawah untuk memulakan bacaan:</i>"
@@ -440,7 +462,7 @@ def handle_callback(cb):
         return
 
     if data == "menu_chapters":
-        txt = "📘 <b>PILIH BAB KANDUNGAN AL-MASAR:</b>\n\nKitab ini mengandungi Mukadimah dan 11 Bab utama. Pilih bab untuk melihat sub-tajuk:"
+        txt = "📘 <b>PILIH BAB KANDUNGAN AL-MASAR:</b>\n\nKitab ini mengandungi Mukadimah, 20 Bab utama dan Khatimah (Penutup).\nPilih bab untuk melihat senarai topik:"
         edit_message(chat_id, msg_id, txt, get_chapters_keyboard())
         return
 

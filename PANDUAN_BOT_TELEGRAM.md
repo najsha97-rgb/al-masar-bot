@@ -6,8 +6,8 @@ Bot Telegram ini dibina khas untuk memudahkan capaian kepada seluruh perbincanga
 
 ## 🌟 Ciri-Ciri Utama Bot
 
-1. **Navigasi Penuh 11 Bab + Mukadimah:**
-   - Menyokong kesemua **116 sub-tajuk** dalam kitab.
+1. **Navigasi Penuh 20 Bab + Mukadimah:**
+   - Menyokong kesemua **210 topik lengkap** dalam kitab.
    - Paginasi pintar untuk membaca teks panjang tanpa membebankan skrin sembang.
 2. **Sokongan Dwi-Lapisan (Dual Layer):**
    - **Layer 1:** Versi Penuh Terjemahan Lengkap kitab.

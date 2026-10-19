@@ -3,7 +3,7 @@
 Bot Telegram pintar untuk rujukan kitab agung **Al-Masar (Fiqh Perancangan Harakah Islamiyah)** karya **As-Syeikh Muhammad Ahmad Ar-Rasyid (رحمه الله)**.
 
 ## 🚀 Ciri-Ciri:
-- 📖 **Navigasi 11 Bab + Mukadimah** merangkumi 116 sub-tajuk lengkap.
+- 📖 **Navigasi 20 Bab + Mukadimah** merangkumi 210 topik lengkap lengkap.
 - ⚡ **Sokongan Dua Lapisan (Dual Layer):** Versi Lengkap & Ringkasan Eksklusif.
 - 🔍 **Enjin Carian Pantas (`/cari`):** Mengesan topik, dalil, dan nukilan secara serta-merta.
 - 💎 **Mutiara Hikmah (`/hikmah`):** Koleksi kalam hikmah dan wasiat dakwah harakah.

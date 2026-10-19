@@ -415,18 +415,28 @@ def handle_search(chat_id, query):
     
     for ch_idx, ch in enumerate(CHAPTERS):
         for s_idx, sub in enumerate(ch["subtopics"]):
-            # Cari dalam tajuk
-            if query_lower in sub["title"].lower():
-                matches.append((ch_idx, s_idx, f"📌 {ch['number']}: {sub['title']}"))
-                continue
-            # Cari dalam perenggan
+            found_p = False
+            # 1. Keutamaan Utama: Versi Penuh (Layer 1)
             for p in sub.get("paragraphs", []):
                 if query_lower in p.lower():
-                    matches.append((ch_idx, s_idx, f"📄 {ch['number']}: {sub['title']}"))
+                    matches.append((ch_idx, s_idx, "layer1", f"📖 [Versi Penuh] {ch['number']}: {sub['title']}"))
+                    found_p = True
                     break
-            if len(matches) >= 8:
-                break
-        if len(matches) >= 8:
+            if found_p:
+                if len(matches) >= 10: break
+                continue
+
+            if query_lower in sub["title"].lower():
+                matches.append((ch_idx, s_idx, "layer1", f"📖 [Versi Penuh] {ch['number']}: {sub['title']}"))
+                if len(matches) >= 10: break
+                continue
+
+            # 2. Keutamaan Kedua: Ringkasan Eksklusif (Layer 2)
+            if query_lower in sub.get("summary", "").lower():
+                matches.append((ch_idx, s_idx, "layer2", f"📑 [Ringkasan] {ch['number']}: {sub['title']}"))
+                if len(matches) >= 10: break
+
+        if len(matches) >= 10:
             break
             
     if not matches:
@@ -434,8 +444,13 @@ def handle_search(chat_id, query):
         return
 
     keyboard = []
-    for ch_idx, s_idx, label in matches:
-        keyboard.append([{"text": label[:38], "callback_data": f"sub_{ch_idx}_{s_idx}_0"}])
+    for item in matches:
+        if len(item) == 4:
+            ch_idx, s_idx, target_layer, label = item
+            keyboard.append([{"text": label[:42], "callback_data": f"subsearch_{ch_idx}_{s_idx}_{target_layer}_0"}])
+        else:
+            ch_idx, s_idx, label = item[:3]
+            keyboard.append([{"text": label[:42], "callback_data": f"sub_{ch_idx}_{s_idx}_0"}])
     keyboard.append([{"text": "🏠 Menu Utama", "callback_data": "menu_main"}])
     
     send_message(
@@ -493,6 +508,21 @@ def handle_callback(cb):
             f"Terdapat <b>{len(ch['subtopics'])} sub-tajuk</b> dalam bab ini. Sila pilih tajuk yang ingin dibaca:"
         )
         edit_message(chat_id, msg_id, txt, get_subtopics_keyboard(ch_idx))
+        return
+
+    if data.startswith("subsearch_"):
+        parts = data.split("_")
+        ch_idx = int(parts[1])
+        s_idx = int(parts[2])
+        target_layer = parts[3]
+        page = int(parts[4]) if len(parts) > 4 else 0
+        
+        set_user_layer(chat_id, target_layer)
+        search_q = USER_SEARCH.get(chat_id)
+        
+        content_txt, total_pages = format_subtopic_text(ch_idx, s_idx, target_layer, page, search_q)
+        kb = get_subtopic_reading_keyboard(ch_idx, s_idx, target_layer, page, total_pages, search_q=search_q)
+        edit_message(chat_id, msg_id, content_txt, kb)
         return
 
     if data.startswith("sub_"):

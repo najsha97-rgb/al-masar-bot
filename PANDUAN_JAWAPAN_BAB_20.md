@@ -251,7 +251,7 @@ Bagi setiap cadangan jawapan, disediakan rujukan bab dan subtajuk dalam **Bahasa
 
 ### 3. Cadangan Topik bagi 3 Persidangan Seterusnya / مواضيع مقترحة لثلاثة مؤتمرات أخرى:
 1. **Persidangan Tarbiah & Generasi Muda / مؤتمر التربية والشباب:**
-   - *Topik 1:* Merawat Fenomena Kelesuan Batin (*Al-Futur*) di Kalangan Siswazah Haraki.
+   - *Topik 1:* Merawat Fenomena Kelesuan Batin (*Al-Futur*) dalam kalangan Siswazah Haraki.
    - *Topik 2:* Kurikulum Silang Budaya: Menggabungkan Kitab Warisan Turats dengan Sains Pengurusan Moden.
    - *Topik 3:* Metodologi Menghadapi Pemikiran Liberalisme, Ateisme Baharu, dan Fahaman Hedonisme.
 2. **Persidangan Pembangunan Kewangan Tanzim / مؤتمر التنمية المالية:**

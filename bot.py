@@ -611,7 +611,7 @@ def handle_callback(cb):
             "• <code>/cari wanita</code> (Peranan dakwah muslimat)\n"
             "• <code>/cari banna</code> (Nukilan Imam Hasan al-Banna)\n"
             "• <code>/cari qutb</code> (Kritikan Sayyid Qutb terhadap tanzim khas)\n"
-            "• <code>/cari tajmi</code> (10 Seni pengumpulan mad'u)"
+            "• <code>/cari tajmi'</code> (10 Seni pengumpulan mad'u)"
         )
         kb = {"inline_keyboard": [[{"text": "⬅️ Menu Utama", "callback_data": "menu_main"}]]}
         edit_message(chat_id, msg_id, txt, kb)

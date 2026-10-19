@@ -73,7 +73,7 @@ Bagi setiap cadangan jawapan, disediakan rujukan bab dan subtajuk dalam **Bahasa
 #### (b) Kadar Penembusan Sektor Luar / ميزان التوغل في المؤسسات والقطاعات:
 - **Rujukan Bab & Subtajuk:** **Bab 10: Laluan-Laluan Penembusan Masyarakat (*Masalik at-Tawaghghul* / مسالك التوغل)** — Subtajuk: **Laluan-Laluan Penembusan Masyarakat / *Masalik at-Tawaghghul* (مسالك التوغل)** (ms. 181–184) & **Kiraan Realiti Merombak Idealisme Emosi / *Al-Hisabat al-Waqi'iyyah Tanqudhu al-Mitsaliyyat al-'Athifiyyah* (الحسابات الواقعية تنقض المثاليات العاطفية)**, ms. 193–195 (PDF 195–197).
 - **Ringkasan Intipati Perbahasan:**  
-  Menembusi sektor masyarakat (institusi awam, desa, belia, profesional) dikawal oleh neraca nisbi keupayaan kader. Syeikh menegaskan bahawa kader tidak boleh dihantar ke sektor yang mencabar jika kefahaman aqidah dan imuniti tarbiah mereka masih rapuh, bimbang mereka akan terlarut dalam arus jahiliyyah dan bukannya mewarnai sektor tersebut dengan fikrah Islam.
+  Menembusi sektor masyarakat (institusi awam, desa, belia, profesional) dikawal oleh neraca nisbi keupayaan kader. Syeikh menegaskan bahawa kader tidak boleh dihantar ke sektor yang mencabar jika kefahaman aqidah dan imuniti tarbiah mereka masih rapuh, bimbang mereka akan terlarut dalam arus jahiliah dan bukannya mewarnai sektor tersebut dengan fikrah Islam.
 
 #### (c) Batas Ketegasan Syarat Keahlian Tanzim / ميزان ضوابط وشروط العضوية التنظيمية:
 - **Rujukan Bab & Subtajuk:**  

@@ -73,6 +73,7 @@ API_BASE = f"https://api.telegram.org/bot{BOT_TOKEN}"
 
 # Penyimpanan Sesi Pengguna Sementara
 USER_STATE = {} # { chat_id: { 'layer': 'layer1' } }
+USER_SEARCH = {} # { chat_id: search_query }
 
 def get_user_layer(chat_id):
     if chat_id not in USER_STATE:
@@ -408,9 +409,15 @@ def handle_message(msg):
     # Mesej biasa -> Lakukan carian pantas
     handle_search(chat_id, text)
 
+def normalize_kw(text):
+    if not text:
+        return ""
+    return re.sub(r"[\u2018\u2019\u02bb\u02bc`]", "'", str(text).lower())
+
 def handle_search(chat_id, query):
     USER_SEARCH[chat_id] = query
     query_lower = query.lower()
+    norm_query = normalize_kw(query)
     matches = []
     
     for ch_idx, ch in enumerate(CHAPTERS):
@@ -418,7 +425,7 @@ def handle_search(chat_id, query):
             found_p = False
             # 1. Keutamaan Utama: Versi Penuh (Layer 1)
             for p in sub.get("paragraphs", []):
-                if query_lower in p.lower():
+                if norm_query in normalize_kw(p):
                     matches.append((ch_idx, s_idx, "layer1", f"📖 [Versi Penuh] {ch['number']}: {sub['title']}"))
                     found_p = True
                     break
@@ -426,13 +433,13 @@ def handle_search(chat_id, query):
                 if len(matches) >= 10: break
                 continue
 
-            if query_lower in sub["title"].lower():
+            if norm_query in normalize_kw(sub["title"]):
                 matches.append((ch_idx, s_idx, "layer1", f"📖 [Versi Penuh] {ch['number']}: {sub['title']}"))
                 if len(matches) >= 10: break
                 continue
 
             # 2. Keutamaan Kedua: Ringkasan Eksklusif (Layer 2)
-            if query_lower in sub.get("summary", "").lower():
+            if norm_query in normalize_kw(sub.get("summary", "")):
                 matches.append((ch_idx, s_idx, "layer2", f"📑 [Ringkasan] {ch['number']}: {sub['title']}"))
                 if len(matches) >= 10: break
 

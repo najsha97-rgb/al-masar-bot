@@ -165,7 +165,9 @@ def get_main_menu_keyboard():
                 {"text": "🔍 Carian Topik", "callback_data": "menu_search_info"}
             ],
             [
-                {"text": "💎 Mutiara Hikmah Dakwah", "callback_data": "hikmah_random"},
+                {"text": "💎 237 Mutiara Kata (Hadis Nabi SAW + Tokoh & Pejuang)", "callback_data": "hikmah_random"}
+            ],
+            [
                 {"text": "🔄 Pilihan Mod Bacaan", "callback_data": "menu_mode"}
             ],
             [

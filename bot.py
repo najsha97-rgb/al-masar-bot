@@ -316,7 +316,7 @@ if os.path.exists(QUOTES_PATH):
 
 def format_hikmah_message(item):
     quote_text = md_to_telegram_html(item.get("quote", ""))
-    total_q = len(HIKMAH_DATA) if HIKMAH_DATA else 156
+    total_q = len(HIKMAH_DATA) if HIKMAH_DATA else 237
     q_id = item.get("id", "")
     badge = f" #{q_id}" if q_id else ""
     return (
@@ -372,7 +372,7 @@ def handle_message(msg):
             "📚 <b>Struktur Dwi-Lapisan (Dual-Layer):</b>\n"
             "• 🔵 <code>Layer 1</code>: Versi Penuh Terjemahan Lengkap (20 Bab + 210 Topik Lengkap)\n"
             "• ⚡ <code>Layer 2</code>: Ringkasan Eksklusif Berstruktur & Analisis Haraki\n"
-            "• 💎 <code>Mutiara Hikmah</code>: Himpunan 156 Nukilan Emas Tokoh & Pemimpin Dakwah\n\n"
+            "• 💎 <code>Mutiara Hikmah</code>: Himpunan 237 Nukilan Emas Tokoh & Pemimpin Dakwah\n\n"
             "🌐 <b>Web PWA (Tema Nilam & Amber):</b>\n"
             "https://al-masar-dakwah.netlify.app/\n\n"
             "<i>Sila pilih menu di bawah untuk memulakan bacaan:</i>"
@@ -453,7 +453,7 @@ def handle_callback(cb):
             "📚 <b>Struktur Dwi-Lapisan (Dual-Layer):</b>\n"
             "• 🔵 <code>Layer 1</code>: Versi Penuh Terjemahan Lengkap (20 Bab + 210 Topik Lengkap)\n"
             "• ⚡ <code>Layer 2</code>: Ringkasan Eksklusif Berstruktur & Analisis Haraki\n"
-            "• 💎 <code>Mutiara Hikmah</code>: Himpunan 156 Nukilan Emas Tokoh & Pemimpin Dakwah\n\n"
+            "• 💎 <code>Mutiara Hikmah</code>: Himpunan 237 Nukilan Emas Tokoh & Pemimpin Dakwah\n\n"
             "🌐 <b>Web PWA (Tema Nilam & Amber):</b>\n"
             "https://al-masar-dakwah.netlify.app/\n\n"
             "<i>Sila pilih seksyen di bawah untuk memulakan bacaan:</i>"

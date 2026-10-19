@@ -278,7 +278,7 @@ def format_subtopic_text(ch_idx, s_idx, layer, page=0, search_q=None):
             summary_clean = pattern.sub(lambda m: f"<b><u>{m.group(0)}</u></b>", summary_clean)
         return header + f"<blockquote>{summary_clean}</blockquote>", 1
 
-def get_subtopic_reading_keyboard(ch_idx, s_idx, layer, page, total_pages):
+def get_subtopic_reading_keyboard(ch_idx, s_idx, layer, page, total_pages, search_q=None):
     ch = CHAPTERS[ch_idx]
     buttons = []
     
@@ -452,6 +452,14 @@ def handle_callback(cb):
     
     answer_callback_query(cb_id)
     
+    if data == "reopen_search":
+        search_q = USER_SEARCH.get(chat_id)
+        if search_q:
+            handle_search(chat_id, search_q)
+        else:
+            send_message(chat_id, "Sila buat carian baru dengan /cari [kata kunci].")
+        return
+
     if data == "menu_main":
         welcome_txt = (
             "🔵 ━━━━━━━━━━━━━━━━━━━ ⚡\n"
@@ -496,7 +504,7 @@ def handle_callback(cb):
         search_q = USER_SEARCH.get(chat_id)
         
         content_txt, total_pages = format_subtopic_text(ch_idx, s_idx, layer, page, search_q)
-        kb = get_subtopic_reading_keyboard(ch_idx, s_idx, layer, page, total_pages)
+        kb = get_subtopic_reading_keyboard(ch_idx, s_idx, layer, page, total_pages, search_q=search_q)
         edit_message(chat_id, msg_id, content_txt, kb)
         return
 

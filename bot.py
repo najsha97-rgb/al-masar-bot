@@ -169,7 +169,7 @@ def get_main_menu_keyboard():
                 {"text": "🔄 Pilihan Mod Bacaan", "callback_data": "menu_mode"}
             ],
             [
-                {"text": "🧭 Buka Web PWA Al-Masar 🌐", "url": "https://al-masar-dakwah.netlify.app/"}
+                {"text": "🧭 Buka Web PWA Al-Masar 🌐", "url": "https://najsha97-rgb.github.io/al-masar-pwa/"}
             ],
             [
                 {"text": "ℹ️ Info Kitab & Syeikh", "callback_data": "menu_about"}
@@ -340,7 +340,7 @@ def format_hikmah_message(item):
         f"📚 <b>Sumber:</b> {item.get('chapterNumber', '')} - {item.get('chapterTitle', '')}\n"
         f"📑 <b>Topik:</b> {item.get('subtopicTitle', '')}\n"
         f"🧭 <i>Kitab Al-Masar — Syeikh Muhammad Ahmad Ar-Rasyid</i>\n"
-        f"🌐 https://al-masar-dakwah.netlify.app/"
+        f"🌐 https://najsha97-rgb.github.io/al-masar-pwa/"
     )
 
 def get_hikmah_keyboard(item):
@@ -384,7 +384,7 @@ def handle_message(msg):
             "• ⚡ <code>Layer 2</code>: Ringkasan Eksklusif Berstruktur & Analisis Haraki\n"
             "• 💎 <code>Mutiara Hikmah</code>: Himpunan 237 Nukilan Emas Tokoh & Pemimpin Dakwah\n\n"
             "🌐 <b>Web PWA (Tema Nilam & Amber):</b>\n"
-            "https://al-masar-dakwah.netlify.app/\n\n"
+            "https://najsha97-rgb.github.io/al-masar-pwa/\n\n"
             "<i>Sila pilih menu di bawah untuk memulakan bacaan:</i>"
         )
         send_message(chat_id, welcome_txt, get_main_menu_keyboard())
@@ -495,7 +495,7 @@ def handle_callback(cb):
             "• ⚡ <code>Layer 2</code>: Ringkasan Eksklusif Berstruktur & Analisis Haraki\n"
             "• 💎 <code>Mutiara Hikmah</code>: Himpunan 237 Nukilan Emas Tokoh & Pemimpin Dakwah\n\n"
             "🌐 <b>Web PWA (Tema Nilam & Amber):</b>\n"
-            "https://al-masar-dakwah.netlify.app/\n\n"
+            "https://najsha97-rgb.github.io/al-masar-pwa/\n\n"
             "<i>Sila pilih seksyen di bawah untuk memulakan bacaan:</i>"
         )
         edit_message(chat_id, msg_id, welcome_txt, get_main_menu_keyboard())
@@ -625,11 +625,11 @@ def handle_callback(cb):
             "<b>Cakupan:</b> Polisi Luaran, Polisi Dalaman & Polisi Tarbawi Harakah Islamiyah</blockquote>\n\n"
             "Al-Masar adalah buku siri kelima daripada siri-siri fiqh dakwah dan harakah Islamiyah dimulai dengan <i>al-Muntalaq</i> (mengenali tabiatnya), <i>al-‘Awa’iq</i> (halangan dakwah), <i>al-Raqa’iq</i> (kelembutan jiwa), dan <i>al-Bawariq</i> (lintasan panduan).\n\n"
             "🌐 <b>Aplikasi Web PWA (Tema Nilam & Amber):</b>\n"
-            "https://al-masar-dakwah.netlify.app/"
+            "https://najsha97-rgb.github.io/al-masar-pwa/"
         )
         kb = {
             "inline_keyboard": [
-                [{"text": "🔵 Layari Web PWA Al-Masar 🌐", "url": "https://al-masar-dakwah.netlify.app/"}],
+                [{"text": "🔵 Layari Web PWA Al-Masar 🌐", "url": "https://najsha97-rgb.github.io/al-masar-pwa/"}],
                 [{"text": "⬅️ Menu Utama", "callback_data": "menu_main"}]
             ]
         }

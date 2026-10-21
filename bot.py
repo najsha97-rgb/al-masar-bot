@@ -160,7 +160,10 @@ def answer_callback_query(callback_query_id, text=""):
 def get_main_menu_keyboard():
     return {
         "inline_keyboard": [
-            [
+                        [
+                {"text": "🏃‍♂️ Prolog Puitis (Lima Gerak Sang Pelari)", "callback_data": "menu_prolog"}
+            ],
+[
                 {"text": "📘 Baca Ikut Bab (20 Bab)", "callback_data": "menu_chapters"},
                 {"text": "🔍 Carian Topik", "callback_data": "menu_search_info"}
             ],

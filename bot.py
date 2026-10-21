@@ -32,6 +32,12 @@ def start_health_server():
         threading.Thread(target=server.serve_forever, daemon=True).start()
         print(f"Health-check HTTP Server aktif pada port {port} (Sedia untuk Render).")
 
+# Pastikan stream selamat jika dijalankan tanpa konsol (background / pythonw)
+if sys.stdout is None:
+    sys.stdout = open(os.devnull, "w", encoding="utf-8")
+if sys.stderr is None:
+    sys.stderr = open(os.devnull, "w", encoding="utf-8")
+
 # Pastikan konsol Windows menyokong emoji dan teks Arab (UTF-8)
 if sys.platform.startswith("win"):
     try:

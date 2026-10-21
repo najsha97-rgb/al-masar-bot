@@ -12,7 +12,8 @@
     "total_chapters": 22,
     "last_updated": "2026-10-18",
     "total_subtopics": 245,
-    "total_paragraphs": 2281
+    "total_paragraphs": 2281,
+    "total_footnotes": 120
   },
   "chapters": [
     {
@@ -6265,12 +6266,18 @@
           "paragraphs": [
             "*السعيد من اتعظ بسواه واستعد لمسراه* (Muka Surat Buku: 530)",
             "Inilah jalan kesungguhan hakiki (samt al-jidd). Jika tidak, hiduplah kita dalam kerugian umur sebagaimana yang digambarkan dengan penuh tajam oleh Syeikh Abdul Qadir al-Kailani rahimahullah:",
-            "\"(Telah sia-sia umur kalian dalam kesibukan: 'Mereka makan dan kami makan, mereka minum dan kami minum, mereka berpakaian dan kami berpakaian, mereka mengumpul harta dan kami mengumpul harta...' )\"",
+            "\"(Telah sia-sia umur kalian dalam kesibukan: 'Mereka makan dan kami makan, mereka minum dan kami minum, mereka berpakaian dan kami berpakaian, mereka mengumpul harta dan kami mengumpul harta...' )\"<span class=\"fn-ref\" data-fn-id=\"112\" id=\"fnref-112\" role=\"button\" tabindex=\"0\" title=\"Syeikh Abdul Qadir al-Kailani, *Al-Fath ar-Rabbani wa al-Faidh ar-Rahmani*, hlm. 83 (الفتح الرباني / 83).\">[112]</span>",
             "Kalam kebenaran ini melukiskan secara jujur kehidupan harian sesetengah kita yang tenggelam dalam kepentingan duniawi dan tuntutan perut. Wajib ke atas kita mempelajari perancangan dakwah. Sebelum kita mendabik dada mengaku berkorban dan bersenandung tentang syahid, tanyalah diri kita: Berapa banyakkah daripada umur kita yang lebur dalam sembang kosong: \"Mereka makan dan kami makan, mereka bina dan kami bina, mereka beli dan kami beli\"??",
             "Sesungguhnya ini adalah masa berharga yang terbuang tatkala medan pertempuran sedang berkecamuk dan ujian menimpa. Tiada tafsiran bagi kelalaian ini melainkan angan-angan yang panjang (thul al-amal) dan lupa kepada nasib akhirat yang pasti. Dan sesungguhnya tekad bulat yang memutus kelesuan jiwa sudah memadai untuk membuktikan betapa dekatnya kemenangan kurniaan Allah bagi orang yang sentiasa berwaspada lagi optimis."
           ],
           "summary": "* Intipati & Pemahaman: Mengambil iktibar daripada ketegasan Syeikh Abdul Qadir al-Kailani dalam menegakkan kesungguhan hakiki dan mencela jiwa yang malas.\n* Prinsip & Dimensi Penting: Perjuangan bukan tempat bersenang-lenang atau mencari kemasyhuran duniawi; ia menuntut kesediaan menanggung beban dan keletihan.\n* Nukilan Tokoh & Sirah: Nasihat emas Syeikh Abdul Qadir al-Kailani kepada muridnya: Tinggalkan angan-angan kosong dan sibukkan diri dengan mujahadah hakiki.\n* Aplikasi Fiqh Haraki & Perancangan: Menilai kecekapan aktivis berasaskan sumbangan produktif di lapangan, bukan sekadar kehadiran pasif dalam mesyuarat.",
-          "footnotes": []
+          "footnotes": [
+            {
+              "id": 112,
+              "number": 112,
+              "text": "Syeikh Abdul Qadir al-Kailani, *Al-Fath ar-Rabbani wa al-Faidh ar-Rahmani*, hlm. 83 (الفتح الرباني / 83)."
+            }
+          ]
         },
         {
           "id": "c21_s8",
@@ -6289,7 +6296,13 @@
           "footnotes": []
         }
       ],
-      "footnotes": []
+      "footnotes": [
+        {
+          "id": 112,
+          "number": 112,
+          "text": "Syeikh Abdul Qadir al-Kailani, *Al-Fath ar-Rabbani wa al-Faidh ar-Rahmani*, hlm. 83 (الفتح الرباني / 83)."
+        }
+      ]
     }
   ]
 }

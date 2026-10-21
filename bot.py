@@ -117,7 +117,15 @@ def md_to_telegram_html(text):
     text = re.sub(r'^[ \t]*[\*\-][ \t]+', '• ', text, flags=re.MULTILINE)
     return text
 
+def escape_html_entities(text):
+    if not text:
+        return ""
+    # Gantikan sebarang & yang bukan sebahagian daripada entiti sah
+    return re.sub(r"&(?!(?:amp|lt|gt|quot|apos);)", "&amp;", text)
+
 def send_message(chat_id, text, reply_markup=None, parse_mode="HTML"):
+    if parse_mode == "HTML":
+        text = escape_html_entities(text)
     payload = {
         "chat_id": chat_id,
         "text": text,
@@ -127,13 +135,17 @@ def send_message(chat_id, text, reply_markup=None, parse_mode="HTML"):
     if reply_markup:
         payload["reply_markup"] = reply_markup
     res = send_api("sendMessage", payload)
-    # Fallback ke plain text jika ada isu entiti HTML
+    # Fallback ke plain text jika ada isu entiti HTML: WAJIB buang semua tanda < > agar bersih 100%
     if (not res or not res.get("ok")) and parse_mode:
+        clean_plain = re.sub(r"<[^>]+>", "", text)
+        payload["text"] = clean_plain
         payload.pop("parse_mode", None)
         res = send_api("sendMessage", payload)
     return res
 
 def edit_message(chat_id, message_id, text, reply_markup=None, parse_mode="HTML"):
+    if parse_mode == "HTML":
+        text = escape_html_entities(text)
     payload = {
         "chat_id": chat_id,
         "message_id": message_id,
@@ -144,12 +156,14 @@ def edit_message(chat_id, message_id, text, reply_markup=None, parse_mode="HTML"
     if reply_markup:
         payload["reply_markup"] = reply_markup
     res = send_api("editMessageText", payload)
-    # Fallback ke plain text jika ada isu entiti HTML
+    # Fallback ke plain text jika ada isu entiti HTML: WAJIB buang semua tanda < > agar bersih 100%
     if res and not res.get("ok"):
         desc = res.get("description", "")
         if "message is not modified" in desc:
             return res
         if parse_mode and ("can't parse entities" in desc or "unsupported parse_mode" in desc or not res.get("ok")):
+            clean_plain = re.sub(r"<[^>]+>", "", text)
+            payload["text"] = clean_plain
             payload.pop("parse_mode", None)
             res = send_api("editMessageText", payload)
     return res
@@ -255,7 +269,7 @@ def clean_paragraph_for_telegram(p):
             my_clean = my_m.group(1).replace("<br>", "\n").replace("<br/>", "\n").replace("<br />", "\n").strip()
             my = f"<blockquote><i>{my_clean}</i></blockquote>\n\n"
             
-        note = "💡 <i>Keterangan rahsia tersirat lima gerak dihuraikan secara terperinci dalam <b>Keterangan Prolog (Bab Penutup)</b>.</i>"
+        note = "💡 Keterangan rahsia tersirat lima gerak dihuraikan secara terperinci dalam <b>Keterangan Prolog (Bab Penutup)</b>."
         return f"{bis}{ar}{my}{note}"
 
     # 2. Custom block: prolog-nav-note in Keterangan Prolog
@@ -268,9 +282,13 @@ def clean_paragraph_for_telegram(p):
     p = re.sub(r'<span[^>]*class=["\']num-card-badge["\'][^>]*>(.*?)</span>', r"<b>[\1]</b> ", p, flags=re.DOTALL)
     p = re.sub(r"<span[^>]*>(.*?)</span>", r"\1", p, flags=re.DOTALL)
     p = re.sub(r"</span>", "", p)
+    # Buang komentar HTML <!-- ... -->
+    p = re.sub(r"<!--.*?-->", "", p, flags=re.DOTALL)
     # 5. Remove HTML tags that Telegram does NOT support (div, section, p, etc.)
     p = re.sub(r"<br\s*/?>", "\n", p)
-    p = re.sub(r"</?(?:div|section|span|p|small|strong|em)[^>]*>", "", p)
+    p = re.sub(r"</?(?:ul|ol|li)[^>]*>", "\n", p)
+    p = re.sub(r"</?(?:h[1-6]|table|tr|td|th)[^>]*>", "\n", p)
+    p = re.sub(r"</?(?:div|section|span|p|small|strong|em|header|footer|article)[^>]*>", "", p)
     # Strip internal anchor links
     p = re.sub(r'<a\s+[^>]*href=["\']#[^"\']*["\'][^>]*>(.*?)</a>', r"\1", p, flags=re.DOTALL)
 
@@ -299,7 +317,7 @@ def format_subtopic_text(ch_idx, s_idx, layer, page=0, search_q=None):
         f"🧭 <b>AL-MASAR (المَسَار)</b>\n"
         f"📚 <b>{ch['number']}: {ch['title']}</b>\n"
         f"📑 <b>Tajuk: {sub['title']}</b>\n"
-        f"🏷 <i>{mode_label}</i>\n"
+        f"🏷 {mode_label}\n"
         f"{highlight_note}"
         f"🔵 ━━━━━━━━━━━━━━━━━━━ ⚡\n\n"
     )

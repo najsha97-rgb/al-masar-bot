@@ -10,7 +10,9 @@
       "layer2": "Ringkasan Eksklusif Berstruktur"
     },
     "total_chapters": 22,
-    "last_updated": "2026-10-18"
+    "last_updated": "2026-10-18",
+    "total_subtopics": 245,
+    "total_paragraphs": 2281
   },
   "chapters": [
     {
@@ -6010,30 +6012,22 @@
       "title": "Ujian Penguasaan (Panduan Jawapan Komprehensif)",
       "title_ar": "اختبار الاستيعاب",
       "arabic_pages": "517 - 518",
-      "total_subtopics": 10,
-      "total_paragraphs": 43,
+      "total_subtopics": 9,
+      "total_paragraphs": 55,
       "subtopics": [
         {
           "id": "c20_s1",
-          "title": "Kitab Al-Masar (المسار) — Syeikh Muhammad Ahmad Al-Rasyid",
-          "paragraphs": [
-            "**Status Dokumen:** Skema Cadangan Jawapan Strategik, Pemetaan Rujukan Dwi-Bahasa (Melayu Standard & Arab Asal) & Ringkasan Intipati Perbahasan Teks Asal > **Kelayakan Disasar:** *Mutafaqqih fi at-Takhtith al-Harakiy al-Islamiy* (Pakar Perancangan Haraki Islam) > **Tujuan Format:** Disesuaikan untuk carian pantas dalam Web PWA dan Bot Telegram secara dwibahasa (Melayu – Arab). > **Rujukan Teks Asal:** Muka Surat Buku Cetakan 517 – 518 (PDF: 519 – 520) serta pemetaan silang dengan Bab 1 hingga Penutup."
-          ],
-          "summary": "* Intipati & Pemahaman: Bab 20 merupakan neraca penilaian komprehensif bagi membuktikan penguasaan hakiki terhadap seluruh teori, polisi, dan strategi dakwah kitab Al-Masar.\n* Prinsip & Dimensi Penting: Mengubah minda pendakwah daripada pengguna pasif kepada arkitek gerakan yang berfikir mengikut neraca tarjih maslahat, keseimbangan, dan perancangan bertahap.\n* Nukilan Tokoh & Sirah: Pesanan Syeikh Al-Rasyid bahawa penguasaan enam soalan sintesis ini melayakkan da'i menyandang gelaran 'Faqih dalam Perancangan Haraki Islam'.\n* Aplikasi Fiqh Haraki & Perancangan: Membina modul usrah lanjutan dan daurah kepimpinan berasaskan soalan-soalan sintesis Al-Masar.",
-          "footnotes": []
-        },
-        {
-          "id": "c20_s2",
           "title": "Pendahuluan: Falsafah Ujian Penguasaan Bab 20",
           "paragraphs": [
             "Syeikh Muhammad Ahmad Al-Rasyid meletakkan Bab 20 bukan sekadar sebagai set soalan latihan biasa, tetapi sebagai **neraca pengiktirafan keilmuan (*Syahadah al-Isti'ab*)**. Ujian ini menuntut pembaca bertukar daripada sekadar \"pembaca pasif\" (*qari' mustahlik*) kepada \"arkitek perancang gerakan\" (*muhandis tanzimiy*).",
             "Bagi setiap cadangan jawapan, disediakan rujukan bab dan subtajuk dalam **Bahasa Melayu Standard** bersebelahan **Teks Arab Asal** yang wujud dalam pangkalan data terjemahan dan aplikasi PWA kita, nombor muka surat buku cetakan asal (serta indeks PDF), diikuti dengan **ringkasan intipati perbahasan khusus** yang terkandung dalam teks bab tersebut."
           ],
           "summary": "* Intipati & Pemahaman: Falsafah peperiksaan kendiri haraki yang menguji kefahaman integratif bukan sekadar hafalan fakta teks.\n* Prinsip & Dimensi Penting: Ujian ini menilai ketajaman membuat keputusan strategik di saat genting, mengurus fasa perubahan, dan menyeimbangkan pelbagai kepentingan tanzim.\n* Nukilan Tokoh & Sirah: Teladan para sahabat yang sentiasa bermuhasabah dan menilai ketepatan strategi sebelum melancarkan fasa baharu.\n* Aplikasi Fiqh Haraki & Perancangan: Menjadikan soalan-soalan ini sebagai instrumen audit keupayaan kepimpinan di peringkat cawangan dan pusat.",
-          "footnotes": []
+          "footnotes": [],
+          "subtopic_id": 1
         },
         {
-          "id": "c20_s3",
+          "id": "c20_s2",
           "title": "Soalan 1: Neraca Tarjih Maslahat Besar Mengatasi Maslahat Kecil / ميزان ترجيح المصلحة الكبيرة على الصغيرة",
           "paragraphs": [
             "*(1) أحص الأحكام الجزئية في فقه العمل الحركي التي نشتقها أثناء المسار وفقاً لقاعدة ترجيح المصلحة الكبيرة على الصغيرة ، وقارنها بما علمته من مثيلاتها التي تصاحب المنطلق وتعين على تخطى العوائق .*",
@@ -6045,10 +6039,11 @@
             "- **Dalam *Al-Munthalaq* (Titik Tolak / المنطلق):** Tarjih maslahat bertumpu kepada *Maslahat Keaslian Ruhiyyah*: mentarjihkan keikhlasan niat mengatasi kemasyhuran, mendahulukan kemurnian aqidah dan tazkiyah mengatasi keterlibatan politik pramatang, dan mengutamakan amalan fardiyyah (solat malam, tilawah Al-Quran). - **Dalam *Al-'Awaiq* (Halangan / العوائق):** Tarjih maslahat bertindak sebagai *Pemotong Penyakit Jiwa*: mentarjihkan sabar menanggung mihnah mengatasi sikap gopoh (*al-isti'jal*), mendahulukan disiplin tanzim mengatasi tarikan hawa nafsu duniawi, dan membuang penyakit kelesuan (*al-futur*). - **Dalam *Al-Masar* (Laluan / المسار):** Tarjih berkembang menjadi *Fiqh Strategik Kolektif* yang menimbang fasa perjuangan, peruntukan sumber manusia secara optimum, pertembungan kuasa politik, dan kesinambungan institusi merentas generasi."
           ],
           "summary": "* Intipati & Pemahaman: Aplikasi kaedah tarjih maslahat besar mengatasi maslahat kecil dalam fiqh haraki Al-Masar berbanding fasa al-Munthalaq dan al-'Awaiq.\n* Prinsip & Dimensi Penting: Mendahulukan kualiti kader daripada kuantiti terbuka; beralih daripada keintiman usrah kepada keterbukaan massa; menjamin tafarrugh qiyadah daripada baitulmal.\n* Nukilan Tokoh & Sirah: Ibrah Khalifah Umar bin Abdul Aziz membiayai Ubaidullah bin Abdullah bin Utbah ribuan dinar demi mendapatkan pandangan strategiknya bagi memelihara maslahat ummah.\n* Aplikasi Fiqh Haraki & Perancangan: Menerbitkan manhaj perancangan secara terbuka bagi membimbing jutaan du'at biarpun menanggung risiko keselamatan kecil daripada musuh.",
-          "footnotes": []
+          "footnotes": [],
+          "subtopic_id": 2
         },
         {
-          "id": "c20_s4",
+          "id": "c20_s3",
           "title": "Soalan 2: Perincian Amal Mengikut Neraca Nisbi, Keseimbangan & Integrasi / جزيئات العمل بنظرة نسبية والتكامل والتوازن",
           "paragraphs": [
             "*(2) هل يمكنك تسمية جزيئات العمل التى تحكم تنفيذها خلال المسار نظرة نسبية ؟ أحصها وقارنها بمثيلاتها التي تحتاجها لسلامة المنطلق واجتياز العوائق ، وبين علاقتها بظاهرة التكامل بين بعض الأعمال من خلال ضرب بعض الأمثلة ، وبظاهرة التوازن بين الأشياء والحالات المتضادة التي تؤدى إلى موقف وسط متعادل بعيد عن التطرف والإفراط والتفريط .*",
@@ -6060,10 +6055,11 @@
             "- **Rujukan 1:** **Bab 19: Teori Generasi Kepimpinan (*Nazhariyyat al-Ajyal al-Qiyadiyyah* / نظرية الأجيال القيادية)** — Subtajuk: **Dakwah... Bukan Syarikat Perniagaan / *Da'wah... Laisat Syarikah Tijariyyah* (دعوة .. ليست شركة تجارية)**, ms. 500–504 (PDF 502–506). *Ringkasan Perbahasan:* Keseimbangan antara ketaatan kepada arahan pimpinan dengan kebebasan ahli syura menegur secara kritis. Syeikh menukilkan kata Saidina Ali RA bahawa sepakat membuta tuli adalah nifaq dan berselisih melulu adalah syiqaq; maka harakah membina posisi wasathiyyah: taat dalam pelaksanaan, bebas dan berani dalam wacana musyawarah. - **Rujukan 2:** **Bab 18: Ciri-Ciri Peribadi Eksekutif (*Muqawwimat ash-Syakhsiyyah at-Tanfiziyyah* / مقومات الشخصية التنفيذية)** — Subtajuk: **Sifat 10: Memutuskan Keterikatan Duniawi / *Al-Inqitha' 'an ash-Shala'iq* (الانقطاع عن الصلائق)**, ms. 475–477 & **Mukadimah Bab: Kelapangan Dada & Kezuhudan**, ms. 457–460 (PDF 459–462). *Ringkasan Perbahasan:* Keseimbangan antara kezuhudan hati dengan penguasaan teknologi moden dan kecekapan sains politik. Zuhud bukan bermakna da'i hidup miskin dan jahil pentadbiran, tetapi hatinya tidak diperbudak oleh dunia tatkala tangannya cekap mengurus tanzim. - **Rujukan 3:** **Penutup (*Al-Khatimah* / الخاتمة)** — Subtajuk: **Tiga Sangkaan Menjana Optimisme / *Az-Zhunun ats-Tsalatsah* (الظنون الثلاثة الباعثة على التفاؤل)**, ms. 526–528 (PDF 528–530). *Ringkasan Perbahasan:* Keseimbangan antara kewaspadaan tanzim dengan keberanian berinisiatif, berpandukan syair Muhammad Iqbal bahawa ketakutan melampau melumpuhkan akal dan langkah kaki."
           ],
           "summary": "* Intipati & Pemahaman: Mengenal pasti perincian amal yang tertakluk kepada neraca pertimbangan nisbi, fenomena saling melengkapi (at-takamul), dan keseimbangan (at-tawazun).\n* Prinsip & Dimensi Penting: Kadar kerahsiaan dan keterbukaan adalah instrumen nisbi mengikut suasana; penembusan sektor dikawal oleh keupayaan kader; syarat keahlian dilonggarkan mengikut fasa.\n* Nukilan Tokoh & Sirah: Pesanan Saidina Ali RA bahawa sepakat membuta tuli adalah nifaq dan berselisih melulu adalah syiqaq; posisi wasathiyyah mengimbangi ketaatan dan kebebasan syura.\n* Aplikasi Fiqh Haraki & Perancangan: Menggandingkan tokoh pemikir strategik dengan panglima operasi lapangan; mengimbangi kezuhudan hati dengan penguasaan sains politik moden.",
-          "footnotes": []
+          "footnotes": [],
+          "subtopic_id": 3
         },
         {
-          "id": "c20_s5",
+          "id": "c20_s4",
           "title": "Soalan 3: Analisis Perbezaan Tabiat Fasa & Faktor Perubahan Strategi / طبائع المواقف المرحلية وتغير الخطط",
           "paragraphs": [
             "*(3) ارصد أسباب الفروق بين طبائع المواقف المرحلية المختلفة والعوامل المؤثرة في تغير الخطط .*",
@@ -6075,10 +6071,11 @@
             "- **Rujukan Bab & Subtajuk:** - **Bab 15: Nada Gemaan Azan (*Nabarat al-Azan* / نبرات الأذان)** — Subtajuk: **Kajian Mendalam... Bukan Sekadar Emosi / *Dirasat... La Mujarrad al-'Awathif* (دراسات . . . لا مجرد العواطف)**, ms. 380–383 (PDF 382–385). - **Bab 16: Rangsangan Pembangunan Dan Pembaharuan Haraki (*Hawafiz at-Tathwir* / حوافز التطوير)** — Subtajuk: **Keluasan Sarana Memperluas Cakupan Gagasan / *Syumul al-Wasa'il Yamuddu Syumul al-Afkar* (شمول الوسائل يمد شمول الأفكار)**, ms. 428–431 (PDF 430–433). - **Ringkasan Intipati Perbahasan:** Kemunculan anak muda yang terdedah kepada kepantasan teknologi maklumat menuntut perubahan sarana dan bahasa dakwah: meninggalkan retorik emosi semata-mata dan beralih kepada kajian saintifik yang mendalam, visualisasi kreatif, dan sarana komprehensif yang menyentuh realiti hidup masyarakat."
           ],
           "summary": "* Intipati & Pemahaman: Analisis punca perbezaan tabiat pendirian fasa dan faktor-faktor penentu perubahan pelan tindakan strategik harakah.\n* Prinsip & Dimensi Penting: Fasa penubuhan mengutamakan pemusatan tarbiah dan kerahsiaan; fasa keterbukaan massa menuntut keterbukaan jaringan dan bahasa masyarakat awam.\n* Nukilan Tokoh & Sirah: Ibrah rekonsiliasi Sudan 1977 tatkala generasi muda mengambil inisiatif berani mengubah pelan boikot kepada penembusan institusi perundangan dan ekonomi Islam.\n* Aplikasi Fiqh Haraki & Perancangan: Menukar pelan serta-merta apabila berhadapan serangan mengejut (mihnah); membahagikan marhalah besar kepada sasaran-sasaran berturutan yang fleksibel.",
-          "footnotes": []
+          "footnotes": [],
+          "subtopic_id": 4
         },
         {
-          "id": "c20_s6",
+          "id": "c20_s5",
           "title": "Soalan 4: Pelan Bertahap bagi Faktor Kesungguhan Jama'i / تدرج عوامل الجدية الجماعية",
           "paragraphs": [
             "*(4) اقترح تدرجا معيناً لتنفيذ عوامل الجدية الجماعية ، وبين ما إذا كان يخضع بعضها لميزان نسبى تحتمه الظروف أو لترجيح يقتضيه تعارض المصالح ؟*",
@@ -6088,10 +6085,11 @@
             "- **Tertakluk kepada Neraca Nisbi Keadaan (*Mizan Nisbiy* / ميزان نسبي تحتمه الظروف):** - Ketegasan menuntut kehadiran 100% dalam aktiviti tanzim dilonggarkan secara nisbi kepada kader mahasiswa semasa musim peperiksaan, atau kader yang sedang diburu oleh aparat perisikan musuh. - **Tertakluk kepada Tarjih Maslahat (*Tarjih Ta'arudh al-Masalih* / ترجيح يقتضيه تعارض المصالح):** - Pengguguran atau penangguhan hukuman tatatertib ke atas kader yang melakukan kesilapan operasi: ditarjihkan untuk menangguhkan pemecatan jika tindakan serta-merta akan menyebabkan cawangan dakwah berpecah atau dieksploitasi oleh media musuh untuk mencemarkan nama baik jemaah."
           ],
           "summary": "* Intipati & Pemahaman: Cadangan pelan bertahap (tadarruj) tiga peringkat dalam melaksanakan 10 faktor kesungguhan jama'i: fardi, tanzimi, dan maidani.\n* Prinsip & Dimensi Penting: Mengelaskan faktor kesungguhan kepada neraca nisbi suasana (relatif) dan tarjih pertentangan maslahat (ta'arudh al-masalih).\n* Nukilan Tokoh & Sirah: Pandangan Mustafa Sadiq ar-Rafi'i tentang roh amal yang berterusan; disiplin sahabat dalam memelihara amanah dan janji tugas.\n* Aplikasi Fiqh Haraki & Perancangan: Melonggarkan tuntutan kehadiran secara nisbi semasa peperiksaan/ancaman; menangguhkan hukuman tatatertib jika pemecatan memudaratkan reputasi jemaah.",
-          "footnotes": []
+          "footnotes": [],
+          "subtopic_id": 5
         },
         {
-          "id": "c20_s7",
+          "id": "c20_s6",
           "title": "Soalan 5: Persidangan Khas Perancangan Dakwah / المؤتمرات التخطيطية لمناقشة خطط العمل الخاصة",
           "paragraphs": [
             "*(5) أحص المؤتمرات المقترحة أثناء المسار لمناقشة خطط عمل خاصة في مجالات معينة ، وضع جداول عمل تقترحها لثلاثة مؤتمرات منها ، واقترح مواضيع ثلاثة مؤتمرات أخرى .*",
@@ -6108,10 +6106,11 @@
             "1. **Persidangan Tarbiah & Generasi Muda / مؤتمر التربية والشباب:** - *Topik 1:* Merawat Fenomena Kelesuan Batin (*Al-Futur*) dalam kalangan Siswazah Haraki. - *Topik 2:* Kurikulum Silang Budaya: Menggabungkan Kitab Warisan Turats dengan Sains Pengurusan Moden. - *Topik 3:* Metodologi Menghadapi Pemikiran Liberalisme, Ateisme Baharu, dan Fahaman Hedonisme. 2. **Persidangan Pembangunan Kewangan Tanzim / مؤتمر التنمية المالية:** - *Topik 1:* Penubuhan Konsortium Perniagaan Harakah yang Patuh Syariah dan Berdaya Saing. - *Topik 2:* Pengurusan Zakat, Saham Wakaf Produktif, dan Tabung Solidariti Mihnah. - *Topik 3:* Protokol Ketelusan Audit Dalaman bagi Mengelakkan Keraguan Dana Jemaah. 3. **Persidangan Khidmat Masyarakat & Kebajikan Awam / مؤتمر الخدمات الاجتماعية:** - *Topik 1:* Transformasi Khidmat Bencana Menjadi Pintu Pengenalan Fikrah Islamiah. - *Topik 2:* Penubuhan Pusat Khidmat Guaman Awam, Klinik Komuniti, dan Pusat Bimbingan Remaja. - *Topik 3:* Strategi Memenangi Jiwa Masyarakat Luar Bandar Melalui Projek Sosioekonomi Lestari."
           ],
           "summary": "* Intipati & Pemahaman: Penstrukturan persidangan-persidangan khas perancangan dakwah bagi membahaskan pelan tindakan sektor strategik (media, kesatuan sekerja, tafarrugh kepimpinan, tarbiah, kewangan).\n* Prinsip & Dimensi Penting: Menetapkan jadual kerja eksekutif harian yang konkrit; memecahkan monopoli media sekular dan membina konsortium ekonomi dakwah yang berdaya saing.\n* Nukilan Tokoh & Sirah: Pengurusan logistik dan risikan Sultan Salahuddin al-Ayyubi; penyusunan piagam persaudaraan dan pertahanan di Madinah.\n* Aplikasi Fiqh Haraki & Perancangan: Merangka jadual kerja persidangan 3 hari bagi media dan kesatuan sekerja; menyediakan skim kifayah bermaruah untuk pimpinan yang berkhidmat sepenuh masa.",
-          "footnotes": []
+          "footnotes": [],
+          "subtopic_id": 6
         },
         {
-          "id": "c20_s8",
+          "id": "c20_s7",
           "title": "Soalan 6: Peta Konsep Komprehensif (Lauhah Khithathiyyah) & Istilah Haraki / اللوحة التخطيطية الشاملة والمصطلحات الحركية",
           "paragraphs": [
             "*(6) استخرج من المسار عناوين الموازين والقواعد الخططية وضوابط النشاط وعوامل التأثير المختلفة ، واحصر التقسيمات والفروع وأجزاء المراحل ، والأشباه والنظائر ، وأنواع الصفات والميزات ، واكتشف المصطلحات الحركية والجمل الموجزة ذات المعنى الكبير ... لترسمها في لوحة تخطيطية ، ووسيلة إيضاح جامعة على نمط الخوارط والجداول ...*",
@@ -6127,19 +6126,21 @@
             "<div class=\"lauhah-infographic-wrap\">\n <div class=\"infographic-header\">\n <div class=\"infographic-badge\">Peta Struktur Komprehensif Al-Masar</div>\n <h3 class=\"infographic-title\">اللوحة التخطيطية الشاملة للمسار</h3>\n <div class=\"infographic-subtitle\">Rangka Visual Aliran Fiqh Perancangan &amp; Strategi Harakah Islamiyah</div>\n </div>\n\n <!-- TONGGAK 1: AQIDAH & NIAT -->\n <div class=\"flow-step\">\n <div class=\"flow-card card-root\">\n <div class=\"card-icon\">⚡</div>\n <div class=\"card-title-ar\">العقيدة والنية الخالصة</div>\n <div class=\"card-title-ms\">AQIDAH &amp; NIAT</div>\n <div class=\"card-desc\">Paksi keikhlasan mutlak semata-mata kerana Allah &amp; aqidah tauhid yang jernih sebagai asas pergerakan dakwah</div>\n </div>\n </div>\n\n <!-- FLOW CONNECTOR -->\n <div class=\"flow-arrow-down\">\n <span class=\"arrow-line\"></span>\n <span class=\"arrow-badge\">Dua Sayap Operasi &amp; Garis Masa</span>\n </div>\n\n <!-- DUA SAYAP PARALLEL -->\n <div class=\"flow-branches-grid\">\n <!-- SAYAP KIRI: 5 KELOMPOK SEPULUH -->\n <div class=\"branch-card branch-operasional\">\n <div class=\"branch-header\">\n <span class=\"branch-badge\">50 Kaedah Tindakan</span>\n <h4>الأعشاريات الخمس</h4>\n <div class=\"branch-sub\">LIMA KELOMPOK SEPULUH<br><small>(Rukun Operasi Haraki)</small></div>\n </div>\n <ul class=\"branch-list\">\n <li><span class=\"pill-num\">1</span> <div><strong>At-Tajmi'</strong> <em>(Seni Menghimpun Kader — Bab 8)</em></div></li>\n <li><span class=\"pill-num\">2</span> <div><strong>Al-Jiddiyyah</strong> <em>(Faktor Kesungguhan — Bab 12)</em></div></li>\n <li><span class=\"pill-num\">3</span> <div><strong>At-Takyif</strong> <em>(Penyesuaian Fleksibel — Bab 13)</em></div></li>\n <li><span class=\"pill-num\">4</span> <div><strong>At-Takhtith</strong> <em>(Prinsip Perancangan — Bab 17)</em></div></li>\n <li><span class=\"pill-num\">5</span> <div><strong>Syakhsiyyah ad-Da'iyah</strong> <em>(Peribadi Eksekutif — Bab 18)</em></div></li>\n </ul>\n </div>\n\n <!-- SAYAP KANAN: 4 KELOMPOK LIMA -->\n <div class=\"branch-card branch-fasa\">\n <div class=\"branch-header\">\n <span class=\"branch-badge\">20 Dimensi Masa</span>\n <h4>الخماسيات الأربع</h4>\n <div class=\"branch-sub\">EMPAT KELOMPOK LIMA<br><small>(Rukun Fasa Perkembangan)</small></div>\n </div>\n <ul class=\"branch-list\">\n <li><span class=\"pill-num\">1</span> <div><strong>An-Nasy'ah</strong> <em>(Fasa Pengasasan &amp; Inkubasi — Bab 5)</em></div></li>\n <li><span class=\"pill-num\">2</span> <div><strong>An-Nasyr</strong> <em>(Membentang Layar Terbuka — Bab 7)</em></div></li>\n <li><span class=\"pill-num\">3</span> <div><strong>Al-Ithlalah</strong> <em>(Tinjauan Harapan Masa Depan — Bab 14)</em></div></li>\n <li><span class=\"pill-num\">4</span> <div><strong>At-Tabrir</strong> <em>(Justifikasi Fiqh &amp; Syariah — Bab 5)</em></div></li>\n </ul>\n </div>\n </div>\n\n <!-- FLOW CONNECTOR -->\n <div class=\"flow-arrow-down\">\n <span class=\"arrow-line\"></span>\n <span class=\"arrow-badge\">Penyatuan ke Arah Taktik Penembusan Luar</span>\n </div>\n\n <!-- DUA KELOMPOK EMPAT -->\n <div class=\"flow-step\">\n <div class=\"flow-card card-tactics\">\n <div class=\"flow-card-head\">\n <span class=\"step-num-badge\">Taktik</span>\n <div class=\"flow-card-titles\">\n <div class=\"card-title-ar\">الرباعيتان</div>\n <div class=\"card-title-ms\">DUA KELOMPOK EMPAT (Taktik Strategik)</div>\n </div>\n </div>\n <div class=\"tactics-grid\">\n <div class=\"tactic-item\">\n <span class=\"tactic-num\">1</span>\n <div><strong>At-Tawaghghul</strong> <em>(Penembusan Sektor &amp; Masyarakat Awam — Bab 10)</em></div>\n </div>\n <div class=\"tactic-item\">\n <span class=\"tactic-num\">2</span>\n <div><strong>Al-Azan</strong> <em>(Gemaan Seruan Terbuka &amp; Minda Ummah — Bab 15)</em></div>\n </div>\n </div>\n </div>\n </div>\n\n <!-- FLOW CONNECTOR -->\n <div class=\"flow-arrow-down\">\n <span class=\"arrow-line\"></span>\n <span class=\"arrow-badge\">Kelangsungan Generasi Kepimpinan Tanzim</span>\n </div>\n\n <!-- TUJUH RUKUN KEPIMPINAN -->\n <div class=\"flow-step\">\n <div class=\"flow-card card-leadership\">\n <div class=\"flow-card-head\">\n <span class=\"step-num-badge\">Bab 19</span>\n <div class=\"flow-card-titles\">\n <div class=\"card-title-ar\">السباعية القيادية</div>\n <div class=\"card-title-ms\">TUJUH RUKUN KEPIMPINAN GENERASI (Kelangsungan Tanzim)</div>\n </div>\n </div>\n <div class=\"leadership-grid\">\n <div class=\"lead-pill\"><span class=\"lead-num\">1</span> <div><strong>Pengesanan Bakat Awal</strong> <em>(Istiksyaf al-Kifa'at)</em></div></div>\n <div class=\"lead-pill\"><span class=\"lead-num\">2</span> <div><strong>Tarbiah Kepimpinan Berfokus</strong> <em>(At-Tarbiyah al-Qiyadiyyah)</em></div></div>\n <div class=\"lead-pill\"><span class=\"lead-num\">3</span> <div><strong>Penyerahan Tugas Bertahap</strong> <em>(At-Tafweezh al-Mutadarrij)</em></div></div>\n <div class=\"lead-pill\"><span class=\"lead-num\">4</span> <div><strong>Toleransi Mendidik Kesilapan</strong> <em>(At-Tasamuh ma'al-Khatha')</em></div></div>\n <div class=\"lead-pill\"><span class=\"lead-num\">5</span> <div><strong>Jaminan Sara Hidup / Tafarrugh</strong> <em>(Al-Kifayah wat-Tafarrugh)</em></div></div>\n <div class=\"lead-pill\"><span class=\"lead-num\">6</span> <div><strong>Syura Mengikat yang Dinamik</strong> <em>(Asy-Syura al-Mulzimah)</em></div></div>\n <div class=\"lead-pill\"><span class=\"lead-num\">7</span> <div><strong>Penyerahan Estafet Kepimpinan</strong> <em>(Taslim ar-Rayah)</em></div></div>\n </div>\n </div>\n </div>\n\n <!-- FLOW CONNECTOR -->\n <div class=\"flow-arrow-down\">\n <span class=\"arrow-line\"></span>\n <span class=\"arrow-badge\">Muara Penyempurnaan &amp; Optimisme Kemenangan</span>\n </div>\n\n <!-- TIGA TONGGAK PEMBETULAN -->\n <div class=\"flow-step\">\n <div class=\"flow-card card-khatimah\">\n <div class=\"flow-card-head\">\n <span class=\"step-num-badge\">Khatimah</span>\n <div class=\"flow-card-titles\">\n <div class=\"card-title-ar\">الثلاثية التصحيحية</div>\n <div class=\"card-title-ms\">TIGA TONGGAK PEMBETULAN HARAKI (Penutup Kitab)</div>\n </div>\n </div>\n <div class=\"khatimah-grid\">\n <div class=\"khatimah-pill\">\n <span class=\"khatimah-num\">1</span>\n <div><strong>Hati yang Tersengat Derita</strong> <em>(Qalb Yaltadzi')</em></div>\n </div>\n <div class=\"khatimah-pill\">\n <span class=\"khatimah-num\">2</span>\n <div><strong>Manhaj &amp; Media Penyatuan Pemikiran</strong> <em>(Wahdat al-Mafahim)</em></div>\n </div>\n <div class=\"khatimah-pill\">\n <span class=\"khatimah-num\">3</span>\n <div><strong>Wacana &amp; Musafir Dakwah Global</strong> <em>(Siyahat ar-Rijal)</em></div>\n </div>\n </div>\n </div>\n </div>\n</div>"
           ],
           "summary": "* Intipati & Pemahaman: Pembinaan peta perancangan visual komprehensif (Lauhah Khithathiyyah) dan penguasaan kamus istilah haraki padat Al-Masar.\n* Prinsip & Dimensi Penting: Menguasai istilah kunci: Al-Muraghamatain, Tat'im al-Qiyadah, Wajib at-Ta'ammul, Samt al-Jidd, Ithlaq at-Tawkil, dan Isti'naf al-Wa'i.\n* Nukilan Tokoh & Sirah: Falsafah Ibn al-Qayyim dan Syeikh Al-Rasyid mengenai carta dan visualisasi sebagai sarana berkesan melatih angkatan pelapis.\n* Aplikasi Fiqh Haraki & Perancangan: Menyusun carta alir operasi yang menghubungkan 5 kelompok sepuluh, 4 kelompok lima, 2 kelompok empat, dan 7 rukun kepimpinan generasi.",
-          "footnotes": []
+          "footnotes": [],
+          "subtopic_id": 7
         },
         {
-          "id": "c20_s9",
+          "id": "c20_s8",
           "title": "Kesimpulan: Cabaran Pelaksanaan kepada Da'i / خاتمة : تحديات التنفيذ أمام الداعية",
           "paragraphs": [
             "Keupayaan menjawab dan menguasai enam soalan di atas bukan sekadar lulus ujian akademik, tetapi mengesahkan bahawa seorang da'i: 1. Memiliki **Kefahaman Komprehensif Fiqh Haraki** yang matang (*Fahm Syamil lil-Fiqh al-Harakiy*). 2. Membebaskan diri daripada belenggu taksub membuta tuli dan taqlid sempit (*At-Taharrur min ar-Rukud*). 3. Berkemampuan merangka modul kuliah latihan untuk mendidik angkatan pelapis (*Bina' al-Afaweej al-Qiyadiyyah*). 4. Bersiap siaga memikul panji perjuangan Islam menuju kemenangan dan keredhaan Allah Subhanahu wa Ta'ala."
           ],
           "summary": "* Intipati & Pemahaman: Penilaian cabaran pelaksanaan di hadapan da'i: beralih daripada ilmu teori kepada amalan kepimpinan di lapangan realiti.\n* Prinsip & Dimensi Penting: Melatih generasi pelapis (Afaweej al-Qiyadiyyah); membebaskan saf daripada belenggu taqlid buta dan kejumudan fiqh haraki.\n* Nukilan Tokoh & Sirah: Semangat kepahlawanan Salafussoleh yang menyatukan ilmu usul yang mendalam dengan keberanian melangkah di medan juang.\n* Aplikasi Fiqh Haraki & Perancangan: Membina jati diri da'i yang memiliki keluasan dada, ketajaman firasat, dan keteguhan berprinsip mendepani gelombang cabaran zaman.",
-          "footnotes": []
+          "footnotes": [],
+          "subtopic_id": 8
         },
         {
-          "id": "c20_s10",
+          "id": "c20_s9",
           "title": "Notis Penting Panduan Carian Web",
           "paragraphs": [
             "1. Panduan navigasi dwibahasa dalam aplikasi ini bagi merujuk muka surat buku cetakan asal bahasa Arab.",
@@ -6147,7 +6148,8 @@
             "3. Guna kemudahan carian pintar dalam aplikasi dengan menaip kata kunci untuk mencari maklumat atau bahan berkenaan."
           ],
           "summary": "* **Intipati & Pemahaman:** \n Panduan navigasi dwibahasa dalam aplikasi ini disediakan bagi memudahkan pembaca merujuk muka surat buku cetakan asal bahasa Arab.\n* **Prinsip & Dimensi Penting:** \n Rujukan muka surat Arab memudahkan penyelidik asatizah melakukan rujukan silang dan semakan teks asal secara tepat dan berwibawa.\n* **Nukilan Tokoh & Sirah:** \n Syeikh Muhammad Ahmad Al-Rasyid menegaskan bahawa penyelidikan dakwah menuntut ketelitian ilmiah (*tahqiq*) dan adab merujuk sumber asal bagi menjamin ketulenan manhaj haraki.\n* **Aplikasi Fiqh Haraki & Perancangan:** \n Gunakan kemudahan carian pintar dalam aplikasi dengan menaip kata kunci untuk mencari maklumat atau bahan berkenaan secara pantas.",
-          "footnotes": []
+          "footnotes": [],
+          "subtopic_id": 9
         }
       ],
       "footnotes": []

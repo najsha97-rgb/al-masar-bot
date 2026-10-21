@@ -3999,7 +3999,10 @@
             "Sesungguhnya kota-kota dan pusat tamadun Islam pada hari ini telah sarat dipenuhi oleh para da'i yang penuh dengan pengharapan yang tinggi dan menjadi kebanggaan seluruh umat. Justeru, amat wajar dan menjadi hak bagi mereka untuk kita terus meneroka dan menyingkap dengan lebih mendalam lagi lembah-lembah pengharapan tersebut."
           ],
           "footnotes": [
-            68
+            {
+              "id": 68,
+              "text": "Sayyid Qutb, *Hadha ad-Din*, hlm. 8."
+            }
           ]
         },
         {
@@ -4053,7 +4056,10 @@
             "Sama sekali tidak wajar dibiarkan khalayak umum Islam yang berlegar dalam orbit kita terus-menerus menjadi tawanan kepada media penyiaran rasmi pemerintah yang sering celaru, goyah, dan merosakkan jiwa. Sebaliknya, menjadi tanggungjawab kita untuk mengisi ruang masa mereka dengan program-program tarbiah yang bermatlamat, serta membimbing mereka untuk memahami manhaj dan cara berfikir kita."
           ],
           "footnotes": [
-            69
+            {
+              "id": 69,
+              "text": "Al-Hafiz Ibn Hajar al-'Asqalani, *Tahdhib al-Tahdhib*, jld. 10, hlm. 108."
+            }
           ]
         },
         {
@@ -4291,11 +4297,11 @@
       "footnotes": [
         {
           "id": 68,
-          "text": "Sayyid Qutb, Hadha ad-Din, hlm. 8."
+          "text": "Sayyid Qutb, *Hadha ad-Din*, hlm. 8."
         },
         {
           "id": 69,
-          "text": "Ibn Hajar al-'Asqalani, Tahdhib al-Tahdhib, jil. 10, hlm. 108."
+          "text": "Al-Hafiz Ibn Hajar al-'Asqalani, *Tahdhib al-Tahdhib*, jld. 10, hlm. 108."
         }
       ]
     },
@@ -4330,10 +4336,22 @@
             "Sama sahaja dalam hal ini, ia adalah tugas para nabi dan tugas para pengikut mereka selepas disempurnakan penjelasan hujah. Sesungguhnya \"pedang itu dijadikan sebagai pembela bagi hujah, dan seadil-adil pedang adalah pedang yang membela hujah-hujah Allah dan keterangan-keterangan-Nya, iaitu pedang Rasul-Nya dan pedang umatnya.\"<span class=\"fn-ref\" data-fn-id=\"73\" id=\"fnref-73\" role=\"button\" tabindex=\"0\" title=\"Ibn al-Qayyim, Zad al-Ma'ad, jld. 3, hlm. 43.\">[73]</span>"
           ],
           "footnotes": [
-            70,
-            71,
-            72,
-            73
+            {
+              "id": 70,
+              "text": "Walid al-A'zami, *Diwan az-Zawabi'*, hlm. 40."
+            },
+            {
+              "id": 71,
+              "text": "Ibn al-Qayyim, *Al-Jawab al-Kafi li-Man Sa'ala 'an ad-Dawa' asy-Syafi*, hlm. 82."
+            },
+            {
+              "id": 72,
+              "text": "Syeikhul Islam Ibn Taimiyyah, *Majmu' Fatawa*, jld. 35, hlm. 365."
+            },
+            {
+              "id": 73,
+              "text": "Ibn al-Qayyim, *Zad al-Ma'ad*, jld. 3, hlm. 43."
+            }
           ]
         },
         {
@@ -4367,10 +4385,15 @@
             "Kerana hakikatnya seorang manusia itu tidak akan mencapai kesempurnaan kemanusiaannya tanpa solat, memandangkan solat adalah kesempurnaan fitrahnya. Melalui solat dia mencampakkan segala kelalaian jahiliah, lalu mula memikul bebanan perubahan yang berat, sebagaimana fikirannya menjadi jernih dan bening sehingga dia menyedari kewajipan memikul senjata...",
             "> *فليس تنفع مظلوماً شكايته ... إن لم يجالد بسيف صارم خذم<br>ولو أجاب بغير السيف : لم يُجب ...<br>(Maka tiadalah memberi manfaat keluhan dan aduan orang yang dizalimi ... sekiranya dia tidak berjuang menentang dengan pedang tajam yang membelah ... Dan sekiranya dia menyahut dengan selain pedang, nescaya sahutannya tidak akan dipedulikan!)*",
             "Ini adalah kefahaman mendalam generasi terdahulu yang diriwayatkan oleh Ibn Qutaibah ad-Dinawari daripada Ali bin Umayyah pada awal zaman pemerintahan Bani al-Abbas, tatkala hatinya pedih melihat kekacauan meluas yang melanda: kemusnahan yang membinasakan, ketakutan yang mencekam, kelaparan yang dahsyat, kebimbangan dan kesempitan hidup, serta penyeru waktu pagi yang melaungkan jeritan panjang:",
-            "> *السلاح السلاح ، فما نستفيق ...<br>(Senjata! Angkatlah senjata! Betapa hinanya kita jika masih belum terjaga daripada lena!){{FN5}}*",
+            "> *السلاح السلاح ، فما نستفيق ...<br>(Senjata! Angkatlah senjata! Betapa hinanya kita jika masih belum terjaga daripada lena!)<span class=\"fn-ref\" data-fn-id=\"74\" id=\"fnref-74\" role=\"button\" tabindex=\"0\" title=\"Ibn Qutaibah ad-Dinawari, *'Uyun al-Akhbar*, jld. 1, hlm. 132.\">[74]</span>*",
             "Maka ketika itu dia kehairanan, tidak tahu yang mana satu lebih menghairankan: adakah kebiadaban orang zalim yang semakin melampau dalam kesesatannya, ataukah kealpaan orang yang dizalimi yang keterlaluan dalam tidurnya yang lena?!"
           ],
-          "footnotes": []
+          "footnotes": [
+            {
+              "id": 74,
+              "text": "Ibn Qutaibah ad-Dinawari, *'Uyun al-Akhbar*, jld. 1, hlm. 132."
+            }
+          ]
         },
         {
           "id": 4,
@@ -4399,9 +4422,18 @@
             "Oleh sebab itulah Al-Imam Hasan al-Banna mengingatkan jundunya kepada hakikat masa hadapan mereka dan menuntut mereka bersiap sedia. Beliau mengingatkan mereka bahawa: \"Mereka akan menggunakan kekuatan amali apabila tiada lagi jalan lain yang berkesan, dan apabila mereka telah yakin bahawa diri mereka telah menyempurnakan bekalan iman dan perpaduan.\"<span class=\"fn-ref\" data-fn-id=\"77\" id=\"fnref-77\" role=\"button\" tabindex=\"0\" title=\"Al-Imam Hasan al-Banna, Khitab al-Mu'tamar al-Khamis.\">[77]</span>"
           ],
           "footnotes": [
-            75,
-            76,
-            77
+            {
+              "id": 75,
+              "text": "Al-Imam Hasan al-Banna, *Khitab al-Mu'tamar al-Khamis*."
+            },
+            {
+              "id": 76,
+              "text": "Mustafa Sadiq ar-Rafi'i, *Wahyu al-Qalam*, jld. 2, hlm. 197."
+            },
+            {
+              "id": 77,
+              "text": "Al-Imam Hasan al-Banna, *Khitab al-Mu'tamar al-Khamis*."
+            }
           ]
         },
         {
@@ -4418,7 +4450,10 @@
             "Bukannya isyarat beliau kepada terhentinya tugas fuqaha' apabila keadilan tertegak itu membawa maksud keluhan kerana hilangnya punca pendapatan mereka, tetapi ia adalah gaya bahasa yang diterima dalam laras ilmu para ulama terdahulu dan menepati cita rasa pengungkapan mereka, walaupun ia ditinggalkan oleh gaya bahasa moden sehingga kelihatan asing bagi sebahagian orang."
           ],
           "footnotes": [
-            78
+            {
+              "id": 78,
+              "text": "Hujjatul Islam Al-Imam al-Ghazali, *Ihya' 'Ulum ad-Din*, jld. 1, hlm. 17."
+            }
           ]
         },
         {
@@ -4663,39 +4698,39 @@
       "footnotes": [
         {
           "id": 70,
-          "text": "Walid al-A'zami, Diwan az-Zawabi', hlm. 40."
+          "text": "Walid al-A'zami, *Diwan az-Zawabi'*, hlm. 40."
         },
         {
           "id": 71,
-          "text": "Ibn al-Qayyim, Al-Jawab al-Kafi li-Man Sa'ala 'an ad-Dawa' asy-Syafi, hlm. 82."
+          "text": "Ibn al-Qayyim, *Al-Jawab al-Kafi li-Man Sa'ala 'an ad-Dawa' asy-Syafi*, hlm. 82."
         },
         {
           "id": 72,
-          "text": "Majmu' Fatawa Ibn Taimiyyah, jld. 35, hlm. 365."
+          "text": "Syeikhul Islam Ibn Taimiyyah, *Majmu' Fatawa*, jld. 35, hlm. 365."
         },
         {
           "id": 73,
-          "text": "Ibn al-Qayyim, Zad al-Ma'ad, jld. 3, hlm. 43."
+          "text": "Ibn al-Qayyim, *Zad al-Ma'ad*, jld. 3, hlm. 43."
         },
         {
           "id": 74,
-          "text": "Ibn Qutaibah ad-Dinawari, 'Uyun al-Akhbar, jld. 1, hlm. 132."
+          "text": "Ibn Qutaibah ad-Dinawari, *'Uyun al-Akhbar*, jld. 1, hlm. 132."
         },
         {
           "id": 75,
-          "text": "Al-Imam Hasan al-Banna, Khitab al-Mu'tamar al-Khamis."
+          "text": "Al-Imam Hasan al-Banna, *Khitab al-Mu'tamar al-Khamis*."
         },
         {
           "id": 76,
-          "text": "Mustafa Sadiq ar-Rafi'i, Wahyu al-Qalam, jld. 2, hlm. 197."
+          "text": "Mustafa Sadiq ar-Rafi'i, *Wahyu al-Qalam*, jld. 2, hlm. 197."
         },
         {
           "id": 77,
-          "text": "Al-Imam Hasan al-Banna, Khitab al-Mu'tamar al-Khamis."
+          "text": "Al-Imam Hasan al-Banna, *Khitab al-Mu'tamar al-Khamis*."
         },
         {
           "id": 78,
-          "text": "Al-Imam al-Ghazali, Ihya' 'Ulum ad-Din, jld. 1, hlm. 17."
+          "text": "Hujjatul Islam Al-Imam al-Ghazali, *Ihya' 'Ulum ad-Din*, jld. 1, hlm. 17."
         }
       ]
     },

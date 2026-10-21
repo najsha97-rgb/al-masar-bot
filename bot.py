@@ -123,7 +123,7 @@ def send_message(chat_id, text, reply_markup=None, parse_mode="HTML"):
     res = send_api("sendMessage", payload)
     # Fallback ke plain text jika ada isu entiti HTML
     if (not res or not res.get("ok")) and parse_mode:
-        payload["parse_mode"] = None
+        payload.pop("parse_mode", None)
         res = send_api("sendMessage", payload)
     return res
 
@@ -143,8 +143,8 @@ def edit_message(chat_id, message_id, text, reply_markup=None, parse_mode="HTML"
         desc = res.get("description", "")
         if "message is not modified" in desc:
             return res
-        if parse_mode and "can't parse entities" in desc:
-            payload["parse_mode"] = None
+        if parse_mode and ("can't parse entities" in desc or "unsupported parse_mode" in desc or not res.get("ok")):
+            payload.pop("parse_mode", None)
             res = send_api("editMessageText", payload)
     return res
 
@@ -228,6 +228,58 @@ def get_subtopics_keyboard(ch_idx):
     ])
     return {"inline_keyboard": buttons}
 
+def clean_paragraph_for_telegram(p):
+    if not p:
+        return ""
+
+    # 1. Custom block: prolog-center-card (Bait lima gerak)
+    if "prolog-center-card" in p:
+        bis_m = re.search(r"prolog-center-bismillah[^>]*>(.*?)</div>", p, re.DOTALL)
+        bis = f"<b>{bis_m.group(1).strip()}</b>\n\n" if bis_m else ""
+        
+        ar_m = re.search(r"prolog-center-arabic[^>]*>(.*?)</div>", p, re.DOTALL)
+        ar = ""
+        if ar_m:
+            ar_clean = ar_m.group(1).replace("<br>", "\n").replace("<br/>", "\n").replace("<br />", "\n").strip()
+            ar = f"<blockquote><i>{ar_clean}</i></blockquote>\n\n"
+            
+        my_m = re.search(r"prolog-center-malay[^>]*>(.*?)</div>", p, re.DOTALL)
+        my = ""
+        if my_m:
+            my_clean = my_m.group(1).replace("<br>", "\n").replace("<br/>", "\n").replace("<br />", "\n").strip()
+            my = f"<blockquote><i>{my_clean}</i></blockquote>\n\n"
+            
+        note = "💡 <i>Keterangan rahsia tersirat lima gerak dihuraikan secara terperinci dalam <b>Keterangan Prolog (Bab Penutup)</b>.</i>"
+        return f"{bis}{ar}{my}{note}"
+
+    # 2. Custom block: prolog-nav-note in Keterangan Prolog
+    if "prolog-nav-note" in p:
+        return "🔙 <i>Bait-bait epigraf asal boleh dihayati semula di <b>Prolog Puitis (Prakata)</b>.</i>"
+
+    # 3. Handle footnote reference spans: <span class="fn-ref" ...>[X]</span>
+    p = re.sub(r'<span[^>]*class=["\']fn-ref["\'][^>]*>(.*?)</span>', r"<b>\1</b>", p, flags=re.DOTALL)
+    # 4. Handle other spans: e.g. <span class="num-card-badge">1</span>
+    p = re.sub(r'<span[^>]*class=["\']num-card-badge["\'][^>]*>(.*?)</span>', r"<b>[\1]</b> ", p, flags=re.DOTALL)
+    p = re.sub(r"<span[^>]*>(.*?)</span>", r"\1", p, flags=re.DOTALL)
+    p = re.sub(r"</span>", "", p)
+    # 5. Remove HTML tags that Telegram does NOT support (div, section, p, etc.)
+    p = re.sub(r"<br\s*/?>", "\n", p)
+    p = re.sub(r"</?(?:div|section|span|p|small|strong|em)[^>]*>", "", p)
+    # Strip internal anchor links
+    p = re.sub(r'<a\s+[^>]*href=["\']#[^"\']*["\'][^>]*>(.*?)</a>', r"\1", p, flags=re.DOTALL)
+
+    # 6. Markdown formatting
+    p = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", p, flags=re.DOTALL)
+    p = re.sub(r"(?<!\*)\*([^\*]+?)\*(?!\*)", r"<i>\1</i>", p)
+    p = re.sub(r"(?<!_)_([^_]+?)_(?!_)", r"<i>\1</i>", p)
+    
+    # 7. Blockquote
+    p = re.sub(r"^[ \t]*>[ \t]*(.*)$", r"<blockquote>\1</blockquote>", p, flags=re.MULTILINE)
+
+    # Clean multiple newlines
+    p = re.sub(r"\n{3,}", "\n\n", p)
+    return p.strip()
+
 def format_subtopic_text(ch_idx, s_idx, layer, page=0, search_q=None):
     ch = CHAPTERS[ch_idx]
     sub = ch["subtopics"][s_idx]
@@ -257,8 +309,9 @@ def format_subtopic_text(ch_idx, s_idx, layer, page=0, search_q=None):
         cur_len = 0
         
         for p in paras:
-            cur_page.append(p)
-            cur_len += len(p)
+            cleaned_p = clean_paragraph_for_telegram(p)
+            cur_page.append(cleaned_p)
+            cur_len += len(cleaned_p)
             if cur_len > 1400:
                 pages_content.append("\n\n".join(cur_page))
                 cur_page = []
@@ -287,6 +340,12 @@ def format_subtopic_text(ch_idx, s_idx, layer, page=0, search_q=None):
 def get_subtopic_reading_keyboard(ch_idx, s_idx, layer, page, total_pages, search_q=None):
     ch = CHAPTERS[ch_idx]
     buttons = []
+    
+    # Butang Lompatan Khas Prolog Puitis (ch 0, s 0) <-> Keterangan Prolog (ch 21, s 8)
+    if ch_idx == 0 and s_idx == 0:
+        buttons.append([{"text": "🔍 Buka Keterangan Prolog (Rahsia Tersirat) 📖", "callback_data": "sub_21_8_0"}])
+    elif ch_idx == 21 and s_idx == 8:
+        buttons.append([{"text": "🏃‍♂️ Kembali ke Prolog Puitis (Epigraf) 🔙", "callback_data": "sub_0_0_0"}])
     
     # 1. Butang Paginasi (jika teks panjang)
     if total_pages > 1:
@@ -504,6 +563,13 @@ def handle_callback(cb):
             "<i>Sila pilih seksyen di bawah untuk memulakan bacaan:</i>"
         )
         edit_message(chat_id, msg_id, welcome_txt, get_main_menu_keyboard())
+        return
+
+    if data == "menu_prolog":
+        # Akses pantas ke Prolog Puitis: Lima Gerak Sang Pelari (Bab 0, Subtopik 0)
+        content_txt, total_pages = format_subtopic_text(0, 0, "layer1", 0)
+        kb = get_subtopic_reading_keyboard(0, 0, "layer1", 0, total_pages)
+        edit_message(chat_id, msg_id, content_txt, kb)
         return
 
     if data == "menu_chapters":

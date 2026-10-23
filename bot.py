@@ -103,6 +103,16 @@ def send_api(method, payload):
         print(f"Ralat API Telegram ({method}): {e}")
         return None
 
+def format_smart_italic(match):
+    inner = match.group(1)
+    # Kira huruf Arab
+    ar_count = len(re.findall(r'[\u0600-\u06FF]', inner))
+    latin_count = len(re.findall(r'[a-zA-Z]', inner))
+    # Jika teks adalah bahasa Arab atau dominan Arab, JANGAN italic-kan (kekal tegak)
+    if ar_count > 0 and ar_count >= latin_count:
+        return inner
+    return f"<i>{inner}</i>"
+
 def md_to_telegram_html(text):
     if not text:
         return ""
@@ -110,9 +120,9 @@ def md_to_telegram_html(text):
     text = text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
     # 2. Format Bold **teks** -> <b>teks</b>
     text = re.sub(r'\*\*(.+?)\*\*', r'<b>\1</b>', text, flags=re.DOTALL)
-    # 3. Format Italic *teks* atau _teks_ -> <i>teks</i>
-    text = re.sub(r'(?<!\*)\*([^\*\n]+?)\*(?!\*)', r'<i>\1</i>', text)
-    text = re.sub(r'(?<!_)_([^_\n]+?)_(?!_)', r'<i>\1</i>', text)
+    # 3. Format Italic *teks* atau _teks_ -> <i>teks</i> (Hanya teks Rumi/terjemahan, teks Arab tidak di-italic-kan)
+    text = re.sub(r'(?<!\*)\*([^\*\n]+?)\*(?!\*)', format_smart_italic, text)
+    text = re.sub(r'(?<!_)_([^_\n]+?)_(?!_)', format_smart_italic, text)
     # 4. Senarai bullet (* atau - di awal baris) -> • 
     text = re.sub(r'^[ \t]*[\*\-][ \t]+', '• ', text, flags=re.MULTILINE)
     return text
@@ -261,7 +271,7 @@ def clean_paragraph_for_telegram(p):
         ar = ""
         if ar_m:
             ar_clean = ar_m.group(1).replace("<br>", "\n").replace("<br/>", "\n").replace("<br />", "\n").strip()
-            ar = f"<blockquote><i>{ar_clean}</i></blockquote>\n\n"
+            ar = f"<blockquote>{ar_clean}</blockquote>\n\n"
             
         my_m = re.search(r"prolog-center-malay[^>]*>(.*?)</div>", p, re.DOTALL)
         my = ""
@@ -294,8 +304,8 @@ def clean_paragraph_for_telegram(p):
 
     # 6. Markdown formatting
     p = re.sub(r"\*\*(.+?)\*\*", r"<b>\1</b>", p, flags=re.DOTALL)
-    p = re.sub(r"(?<!\*)\*([^\*]+?)\*(?!\*)", r"<i>\1</i>", p)
-    p = re.sub(r"(?<!_)_([^_]+?)_(?!_)", r"<i>\1</i>", p)
+    p = re.sub(r"(?<!\*)\*([^\*]+?)\*(?!\*)", format_smart_italic, p)
+    p = re.sub(r"(?<!_)_([^_]+?)_(?!_)", format_smart_italic, p)
     
     # 7. Blockquote
     p = re.sub(r"^[ \t]*>[ \t]*(.*)$", r"<blockquote>\1</blockquote>", p, flags=re.MULTILINE)
@@ -423,7 +433,7 @@ def format_hikmah_message(item):
         f"✨ <i>Koleksi Mutiara Emas ({badge} / {total_q})</i>\n"
         f"🔵 ━━━━━━━━━━━━━━━━━━━ ⚡\n\n"
         f"👤 <b>{item.get('speaker', 'Tokoh Dakwah')}</b>\n\n"
-        f"<blockquote><i>“{quote_text}”</i></blockquote>\n\n"
+        f"<blockquote>“{quote_text}”</blockquote>\n\n"
         f"━━━━━━━━━━━━━━━━━━━\n"
         f"📚 <b>Sumber:</b> {item.get('chapterNumber', '')} - {item.get('chapterTitle', '')}\n"
         f"📑 <b>Topik:</b> {item.get('subtopicTitle', '')}\n"

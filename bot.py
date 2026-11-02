@@ -133,6 +133,20 @@ def escape_html_entities(text):
     # Gantikan sebarang & yang bukan sebahagian daripada entiti sah
     return re.sub(r"&(?!(?:amp|lt|gt|quot|apos);)", "&amp;", text)
 
+def send_document(chat_id, file_path, caption="", reply_markup=None):
+    url = f"{API_BASE}/sendDocument"
+    try:
+        with open(file_path, "rb") as f:
+            files = {"document": f}
+            data = {"chat_id": chat_id, "caption": caption, "parse_mode": "HTML"}
+            if reply_markup:
+                data["reply_markup"] = json.dumps(reply_markup)
+            res = session.post(url, data=data, files=files, timeout=60)
+            return res.json()
+    except Exception as e:
+        print(f"Ralat sendDocument: {e}")
+        return None
+
 def send_message(chat_id, text, reply_markup=None, parse_mode="HTML"):
     if parse_mode == "HTML":
         text = escape_html_entities(text)
@@ -204,10 +218,41 @@ def get_main_menu_keyboard():
                 {"text": "🔄 Pilihan Mod Bacaan", "callback_data": "menu_mode"}
             ],
             [
+                {"text": "🌍 Ummah Fadhilah & PBI (Sumbangan Al-Masār)", "callback_data": "menu_pbi_masar"}
+            ],
+            [
                 {"text": "🧭 Buka Web PWA Al-Masar 🌐", "url": "https://najsha97-rgb.github.io/al-masar-pwa/"}
             ],
             [
                 {"text": "ℹ️ Info Kitab & Syeikh", "callback_data": "menu_about"}
+            ]
+        ]
+    }
+
+def get_pbi_main_keyboard():
+    return {
+        "inline_keyboard": [
+            [
+                {"text": "⚖️ 1. Penyatuan Tarbiah & Siasah (Bab 1)", "callback_data": "pbi_masar_1"}
+            ],
+            [
+                {"text": "🏛️ 2. Tiga Tiang Polisi Watan (Bab 3 & 4)", "callback_data": "pbi_masar_2"}
+            ],
+            [
+                {"text": "✨ 3. Tiga Keistimewaan Perancangan (Bab 5 & 6)", "callback_data": "pbi_masar_3"}
+            ],
+            [
+                {"text": "👥 4. Kesan Memimpin & Kepimpinan (Bab 8 & 12)", "callback_data": "pbi_masar_4"}
+            ],
+            [
+                {"text": "🎯 5. Realisme & Prinsip Tadarruj (Bab 19 & 20)", "callback_data": "pbi_masar_5"}
+            ],
+            [
+                {"text": "📕 Dokumen Am PDF (886 KB)", "callback_data": "pbi_doc_pdf"},
+                {"text": "📕 Dokumen Khas PDF (4.3 MB)", "callback_data": "pbi_khas_masar_pdf"}
+            ],
+            [
+                {"text": "⬅️ Kembali ke Menu Utama", "callback_data": "menu_main"}
             ]
         ]
     }
@@ -427,13 +472,14 @@ def format_hikmah_message(item):
     total_q = len(HIKMAH_DATA) if HIKMAH_DATA else 237
     q_id = item.get("id", "")
     badge = f" #{q_id}" if q_id else ""
+    quote_block = f"<blockquote>{quote_text}</blockquote>" if (quote_text.startswith("«") or quote_text.startswith("&laquo;")) else f"<blockquote>“{quote_text}”</blockquote>"
     return (
         f"🔵 ━━━━━━━━━━━━━━━━━━━ ⚡\n"
         f"💎 <b>MUTIARA HIKMAH DAKWAH AL-MASAR</b> 💎\n"
         f"✨ <i>Koleksi Mutiara Emas ({badge} / {total_q})</i>\n"
         f"🔵 ━━━━━━━━━━━━━━━━━━━ ⚡\n\n"
         f"👤 <b>{item.get('speaker', 'Tokoh Dakwah')}</b>\n\n"
-        f"<blockquote>“{quote_text}”</blockquote>\n\n"
+        f"{quote_block}\n\n"
         f"━━━━━━━━━━━━━━━━━━━\n"
         f"📚 <b>Sumber:</b> {item.get('chapterNumber', '')} - {item.get('chapterTitle', '')}\n"
         f"📑 <b>Topik:</b> {item.get('subtopicTitle', '')}\n"
@@ -578,6 +624,149 @@ def handle_callback(cb):
             handle_search(chat_id, search_q)
         else:
             send_message(chat_id, "Sila buat carian baru dengan /cari [kata kunci].")
+        return
+
+    if data == "menu_pbi_masar":
+        txt = (
+            "🌍 ━━━━━━━━━━━━━━━━━━━━━ ⚡\n"
+            "<b>UMMAH FADHILAH &amp; PERADABAN BARU ISLAM (PBI)</b>\n"
+            "<i>Sumbangan Kitab Al-Masār dalam Membina Kuasa Watan 100 Tahun Kedua</i>\n"
+            "🌍 ━━━━━━━━━━━━━━━━━━━━━ ⚡\n\n"
+            "<blockquote>🏛️ <b>Seni Bina Polisi Kenegaraan &amp; Perancangan Harakiah:</b>\n"
+            "Kitab <b>Al-Masār</b> (Peta Jalan Peradaban) membina kerangka perancangan menyeluruh (<i>al-takhṭīṭ al-ijmālī</i>) "
+            "bagi harakah Islam untuk beralih daripada sekadar gerakan kesedaran kepada pembina watan dan peneraju peradaban baru. "
+            "Ia menyatukan semula ILMU dan KUASA ke dalam sistem pentadbiran watan yang berdaulat, adil, dan berkat.</blockquote>\n\n"
+            "📌 <b>Lima Teras Sumbangan Al-Masār:</b>\n"
+            "1. ⚖️ <b>Tarbiah &amp; Siasah:</b> Politik dalam ibadat menolak kenaifan (Bab 1)\n"
+            "2. 🏛️ <b>Tiga Tiang Polisi:</b> Luaran, Dalaman &amp; Tarbawi (Bab 3 &amp; 4)\n"
+            "3. ✨ <b>Perancangan Islam:</b> Kualiti, qudwah &amp; kewarakan (Bab 5 &amp; 6)\n"
+            "4. 👥 <b>Kesan Memimpin:</b> Masyarakat cerminan qiyadah (Bab 8 &amp; 12)\n"
+            "5. 🎯 <b>Realisme &amp; Tadarruj:</b> Penterjemahan amali bertahap (Bab 19 &amp; 20)\n\n"
+            "<i>Sila pilih butang di bawah untuk membaca huraian lanjut atau memuat turun dokumen:</i>"
+        )
+        edit_message(chat_id, msg_id, txt, get_pbi_main_keyboard())
+        return
+
+    if data == "pbi_masar_1":
+        txt = (
+            "⚖️ ━━━━━━━━━━━━━━━━━━━━━ ⚡\n"
+            "<b>1. PENYATUAN MUTLAK TARBIAH DAN SIASAH (BAB 1)</b>\n"
+            "<i>Politik Dalam Ibadat Menolak Ekstrem Kenaifan</i>\n"
+            "⚖️ ━━━━━━━━━━━━━━━━━━━━━ ⚡\n\n"
+            "• <b>Menolak Dua Ekstrem:</b> Menolak ekstrem kenaifan (tarbiah beku yang lari daripada realiti politik) dan ekstrem kegopohan (terjun ke medan kuasa tanpa pasak tarbiah).\n\n"
+            "• <b>Ibadah Khilafah:</b> Al-Masār menegaskan kebersamaan tarbiah dan siasah sepanjang jalan; tadbir urus kenegaraan adalah ibadah khilafah untuk menegakkan keadilan syariat dan maslahat watan."
+        )
+        kb = {"inline_keyboard": [[{"text": "⬅️ Kembali ke Menu PBI", "callback_data": "menu_pbi_masar"}]]}
+        edit_message(chat_id, msg_id, txt, kb)
+        return
+
+    if data == "pbi_masar_2":
+        txt = (
+            "🏛️ ━━━━━━━━━━━━━━━━━━━━━ ⚡\n"
+            "<b>2. TIGA TIANG POLISI TADBIR URUS WATAN (BAB 3 &amp; 4)</b>\n"
+            "<i>Polisi Luaran, Dalaman &amp; Tarbawi</i>\n"
+            "🏛️ ━━━━━━━━━━━━━━━━━━━━━ ⚡\n\n"
+            "• <b>Polisi Luaran:</b> Mengatur kedaulatan watan, keselamatan sempadan, dan diplomasi serantau (Tonggak 6).\n\n"
+            "• <b>Polisi Dalaman:</b> Mengurus institusi Syura, kepimpinan Ahlul Halli wal 'Aqd, dan ekonomi berdaya saing bebas riba (Tonggak 4 &amp; 5).\n\n"
+            "• <b>Polisi Tarbawi:</b> Membina modal insan teknokrat, pakar profesional, dan ilmuan berjiwa da'i (Tonggak 7)."
+        )
+        kb = {"inline_keyboard": [[{"text": "⬅️ Kembali ke Menu PBI", "callback_data": "menu_pbi_masar"}]]}
+        edit_message(chat_id, msg_id, txt, kb)
+        return
+
+    if data == "pbi_masar_3":
+        txt = (
+            "✨ ━━━━━━━━━━━━━━━━━━━━━ ⚡\n"
+            "<b>3. TIGA KEISTIMEWAAN PERANCANGAN ISLAM (BAB 5 &amp; 6)</b>\n"
+            "<i>Kemenangan Kualiti, Qudwah &amp; Kewarakan</i>\n"
+            "✨ ━━━━━━━━━━━━━━━━━━━━━ ⚡\n\n"
+            "• <b>Neraca Kualiti:</b> Kejayaan perancangan diukur pada tersebarnya kesedaran taubat dan ketinggian akhlak masyarakat, bukan semata-mata angka statistik material.\n\n"
+            "• <b>Qudwah &amp; Wara':</b> Kepimpinan berwibawa menuntut contoh teladan (<i>qudwah</i>) mendahului arahan, serta kewarakan yang melahirkan daya tarikan rohani menundukkan hati rakyat."
+        )
+        kb = {"inline_keyboard": [[{"text": "⬅️ Kembali ke Menu PBI", "callback_data": "menu_pbi_masar"}]]}
+        edit_message(chat_id, msg_id, txt, kb)
+        return
+
+    if data == "pbi_masar_4":
+        txt = (
+            "👥 ━━━━━━━━━━━━━━━━━━━━━ ⚡\n"
+            "<b>4. KESAN-KESAN YANG MEMIMPIN (BAB 8 &amp; 12)</b>\n"
+            "<i>Al-Āthār al-Qā'idah &amp; Masyarakat Adalah Pantulan Kepimpinan</i>\n"
+            "👥 ━━━━━━━━━━━━━━━━━━━━━ ⚡\n\n"
+            "• <b>Cerminan Pemimpin:</b> Corak dan disiplin masyarakat adalah pantulan langsung daripada akhlak dan ketelusan barisan pemimpinnya.\n\n"
+            "• <b>Tonggak 2 (Kepimpinan Berwibawa):</b> Teks perlembagaan dan undang-undang syariat yang agung tidak akan berfungsi tanpa saf pimpinan yang menganggap pentadbiran negara sebagai amanah akhirat."
+        )
+        kb = {"inline_keyboard": [[{"text": "⬅️ Kembali ke Menu PBI", "callback_data": "menu_pbi_masar"}]]}
+        edit_message(chat_id, msg_id, txt, kb)
+        return
+
+    if data == "pbi_masar_5":
+        txt = (
+            "🎯 ━━━━━━━━━━━━━━━━━━━━━ ⚡\n"
+            "<b>5. REALISME PRAKTIKAL &amp; PRINSIP TADARRUJ (BAB 19 &amp; 20)</b>\n"
+            "<i>Penterjemahan Amali Bertahap &amp; Kelahiran Rijal Watan</i>\n"
+            "🎯 ━━━━━━━━━━━━━━━━━━━━━ ⚡\n\n"
+            "• <b>Menolak Teori Mandul:</b> Menghentikan retorik bilik seminar yang tidak berpijak di bumi nyata.\n\n"
+            "• <b>Rijal di Setiap Kota:</b> Menuntut pembinaan aktivis berkaliber di setiap daerah untuk menterjemahkan teks wahyu menjadi program tindakan amali bertahap (<i>tadarruj</i>) mengikut realiti dan maslahat tempatan."
+        )
+        kb = {"inline_keyboard": [[{"text": "⬅️ Kembali ke Menu PBI", "callback_data": "menu_pbi_masar"}]]}
+        edit_message(chat_id, msg_id, txt, kb)
+        return
+
+    if data == "pbi_doc_docx":
+        doc_path = os.path.join(os.path.dirname(__file__), "Gagasan_Ummah_Fadhilah_Kuasa_Nasional_dan_Tetralogi_Al-Rasyid.docx")
+        if os.path.exists(doc_path):
+            caption = (
+                "📄 <b>DOKUMEN PENGENALAN AM (MICROSOFT WORD)</b>\n\n"
+                "<b>Tajuk:</b> Gagasan Ummah Fadhilah, Kuasa Nasional dan Sumbangan Tetralogi Al-Rasyid\n"
+                "<b>Format:</b> .docx (Boleh disunting &amp; dikaji bersama usrah/komuniti)\n\n"
+                "<i>Kerangka Pemikiran Menuju 100 Tahun Kedua Pasca-1924</i>"
+            )
+            send_document(chat_id, doc_path, caption)
+        else:
+            send_message(chat_id, "⚠️ Fail Word (.docx) Am tidak ditemui.")
+        return
+
+    if data == "pbi_doc_pdf":
+        pdf_path = os.path.join(os.path.dirname(__file__), "Gagasan_Ummah_Fadhilah_Kuasa_Nasional_dan_Tetralogi_Al-Rasyid.pdf")
+        if os.path.exists(pdf_path):
+            caption = (
+                "📕 <b>E-BUKU DOKUMEN PENGENALAN AM (PDF)</b>\n\n"
+                "<b>Tajuk:</b> Gagasan Ummah Fadhilah, Kuasa Nasional dan Sumbangan Tetralogi Al-Rasyid\n"
+                "<b>Format:</b> .pdf (Sedia dicetak &amp; dibaca di mana-mana peranti)\n\n"
+                "<i>Kerangka Pemikiran Menuju 100 Tahun Kedua Pasca-1924</i>"
+            )
+            send_document(chat_id, pdf_path, caption)
+        else:
+            send_message(chat_id, "⚠️ Fail PDF (.pdf) Am tidak ditemui.")
+        return
+
+    if data == "pbi_khas_masar_docx":
+        doc_path = os.path.join(os.path.dirname(__file__), "Sumbangan_Al_Masar_Dalam_Ummah_Fadhilah_Kuasa_Nasional_dan_PBI.docx")
+        if os.path.exists(doc_path):
+            caption = (
+                "📄 <b>DOKUMEN KHAS AL-MASĀR (WORD)</b>\n\n"
+                "<b>Tajuk:</b> Sumbangan Kitab Al-Masār dalam Pembinaan Ummah Fadhilah, Kuasa Nasional &amp; PBI\n"
+                "<b>Format:</b> .docx (Seni Bina Strategi, Polisi Kenegaraan &amp; Perancangan)\n\n"
+                "<i>Siri 4 Fiqh Haraki • As-Syeikh Muhammad Ahmad al-Rasyid</i>"
+            )
+            send_document(chat_id, doc_path, caption)
+        else:
+            send_message(chat_id, "⚠️ Fail Word (.docx) Khas Al-Masār tidak ditemui.")
+        return
+
+    if data == "pbi_khas_masar_pdf":
+        pdf_path = os.path.join(os.path.dirname(__file__), "Sumbangan_Al_Masar_Dalam_Ummah_Fadhilah_Kuasa_Nasional_dan_PBI.pdf")
+        if os.path.exists(pdf_path):
+            caption = (
+                "📕 <b>E-BUKU DOKUMEN KHAS AL-MASĀR (PDF)</b>\n\n"
+                "<b>Tajuk:</b> Sumbangan Kitab Al-Masār dalam Pembinaan Ummah Fadhilah, Kuasa Nasional &amp; PBI\n"
+                "<b>Format:</b> .pdf (Sedia dicetak &amp; dibaca di mana-mana peranti)\n\n"
+                "<i>Siri 4 Fiqh Haraki • As-Syeikh Muhammad Ahmad al-Rasyid</i>"
+            )
+            send_document(chat_id, pdf_path, caption)
+        else:
+            send_message(chat_id, "⚠️ Fail PDF (.pdf) Khas Al-Masār tidak ditemui.")
         return
 
     if data == "menu_main":

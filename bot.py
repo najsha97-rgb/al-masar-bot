@@ -902,7 +902,7 @@ def handle_callback(cb):
             "• <code>/cari tanzim</code> (Fiqh organisasi & rahsia)\n"
             "• <code>/cari wanita</code> (Peranan dakwah muslimat)\n"
             "• <code>/cari banna</code> (Nukilan Imam Hasan al-Banna)\n"
-            "• <code>/cari qutb</code> (Kritikan Sayyid Qutb terhadap tanzim khas)\n"
+            "• <code>/cari qutb</code> (Kritikan Sayid Qutb terhadap tanzim khas)\n"
             "• <code>/cari tajmi'</code> (10 Seni pengumpulan mad'u)"
         )
         kb = {"inline_keyboard": [[{"text": "⬅️ Menu Utama", "callback_data": "menu_main"}]]}

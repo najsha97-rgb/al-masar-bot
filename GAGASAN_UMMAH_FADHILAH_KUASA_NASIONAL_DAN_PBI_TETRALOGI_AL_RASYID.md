@@ -49,7 +49,7 @@ Akar Kuasa: Hak Uluhiah Allah dan Ummah Sebagai Pemegang Amanah:
 Di dalam kerangka politik Islam:
 
 1. Hak Pensyariatan (Al-Uluhiah): Hak mutlak mencipta hukum dasar dan menentukan halal-haram adalah milik Allah SWT semata-mata. Hak ini tidak pernah diserahkan kepada mana-mana raja, parlimen, mahupun suara majoriti rakyat.
-2. Ummah Pemegang Amanah Kuasa: Allah SWT mengurniakan amanah pentadbiran bumi kepada Ummah melalui konsep Istikhlaf. Seruan al-Quran ditujukan kepada keseluruhan orang beriman (Yā ayuhalladhīna āmanū), membuktikan bahawa Ummah adalah pemegang taruh dan sumber kuasa duniawi (maṣdar al-sulṭah).
+2. Ummah Pemegang Amanah Kuasa: Allah SWT mengurniakan amanah pentadbiran bumi kepada Ummah melalui konsep Istikhlaf. Seruan al-Quran ditujukan kepada keseluruhan orang beriman (Yā aiyuhalladhīna āmanū), membuktikan bahawa Ummah adalah pemegang taruh dan sumber kuasa duniawi (maṣdar al-sulṭah).
 3. Institusi Syura dan Ahlul Halli wal 'Aqd: Pemimpin negara (Khalifah/Imam/Presiden) bukanlah pemilik mutlak takhta, tetapi wakil kepada Ummah (wakīl al-ummah) yang dilantik melalui mekanisme Syura dan pemuafakatan Ahlul Halli wal 'Aqd (para ilmuan, teknokrat, dan tokoh integriti) dengan syarat mandatori: menegakkan syariat dan merealisasikan kemaslahatan watan.
 4. Sikap Terhadap Demokrasi Moden: Umat Islam berhak memanfaatkan produk teknikal demokrasi (seperti proses pilihan raya yang aman, pertukaran kuasa tanpa perang, dan pemisahan kuasa yang menghalang diktator) kerana ia sebahagian daripada pengalaman hikmah kemanusiaan sejagat. Namun, umat Islam diharamkan menganut falsafah demokrasi Barat yang meletakkan suara majoriti mengatasi hukum syariat Allah.
 1.3 Pembinaan Kuasa Nasional: Lapan (8) Tonggak Kuasa Watan

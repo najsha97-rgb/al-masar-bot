@@ -118,13 +118,13 @@ def md_to_telegram_html(text):
         return ""
     # 1. Escape aksara khas HTML
     text = text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
-    # 2. Format Bold **teks** -> <b>teks</b>
-    text = re.sub(r'\*\*(.+?)\*\*', r'<b>\1</b>', text, flags=re.DOTALL)
-    # 3. Format Italic *teks* atau _teks_ -> <i>teks</i> (Hanya teks Rumi/terjemahan, teks Arab tidak di-italic-kan)
-    text = re.sub(r'(?<!\*)\*([^\*\n]+?)\*(?!\*)', format_smart_italic, text)
-    text = re.sub(r'(?<!_)_([^_\n]+?)_(?!_)', format_smart_italic, text)
-    # 4. Senarai bullet (* atau - di awal baris) -> • 
+    # 2. Senarai bullet (* atau - di awal baris) ditukar awal -> • agar tidak berlanggar dengan italic
     text = re.sub(r'^[ \t]*[\*\-][ \t]+', '• ', text, flags=re.MULTILINE)
+    # 3. Format Bold **teks** -> <b>teks</b>
+    text = re.sub(r'\*\*(.+?)\*\*', r'<b>\1</b>', text, flags=re.DOTALL)
+    # 4. Format Italic *teks* atau _teks_ -> <i>teks</i> (Hanya teks Rumi/terjemahan, teks Arab tidak di-italic-kan)
+    text = re.sub(r'(?<!\*)\*([^\*\n]+?)\*(?!\*)', format_smart_italic, text)
+    text = re.sub(r'(?<!_)_([^\_\n]+?)_(?!_)', format_smart_italic, text)
     return text
 
 def escape_html_entities(text):

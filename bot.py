@@ -331,6 +331,26 @@ def clean_paragraph_for_telegram(p):
     if "prolog-nav-note" in p:
         return "🔙 <i>Bait-bait epigraf asal boleh dihayati semula di <b>Prolog Puitis (Prakata)</b>.</i>"
 
+    # 2b. Custom block: hierarchy-tree-card (Pelan Bertahap Soalan 4)
+    if "hierarchy-tree-card" in p:
+        return (
+            "🌳 <b>Pelan Bertahap Faktor Kesungguhan Jama'i:</b>\n\n"
+            "┌─ <b>[Fasa 1: Kesungguhan Fardiyah (Individu)]</b>\n"
+            "├─ <b>Faktor 1:</b> Kejelasan fikrah Islam dalam jiwa da'i\n"
+            "├─ <b>Faktor 2:</b> Program fardi (qiamullail, tilawah, wirid, infaq peribadi)\n"
+            "└─ <b>Faktor 3:</b> Menepati waktu janji temu dan amanah tugas\n"
+            "    ▼\n"
+            "┌─ <b>[Fasa 2: Kesungguhan Tanzimiyah (Organisasi)]</b>\n"
+            "├─ <b>Faktor 6:</b> Peraturan dalaman & perlembagaan tanzim yang jelas\n"
+            "├─ <b>Faktor 7:</b> Langkah berjaga-jaga pimpinan menolak fitnah\n"
+            "└─ <b>Faktor 8:</b> Pengurusan kewangan dan pelaporan audit dalaman berkala\n"
+            "    ▼\n"
+            "┌─ <b>[Fasa 3: Kesungguhan Maidaniyah (Medan Terbuka)]</b>\n"
+            "├─ <b>Faktor 4:</b> Menghalang penghijrahan dan melengkapkan kitaran generasi\n"
+            "├─ <b>Faktor 9:</b> Menyedari bahaya persekitaran luar yang mengepung dakwah\n"
+            "└─ <b>Faktor 10:</b> Mengobarkan sastera hamasiyah dalam kempen massa"
+        )
+
     # 3. Handle footnote reference spans: <span class="fn-ref" ...>[X]</span>
     p = re.sub(r'<span[^>]*class=["\']fn-ref["\'][^>]*>(.*?)</span>', r"<b>\1</b>", p, flags=re.DOTALL)
     # 4. Handle other spans: e.g. <span class="num-card-badge">1</span>
